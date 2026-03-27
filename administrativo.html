@@ -1,24 +1,1554 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Administrativo — Práctica</title>
-  <style>
-    body{margin:0;font:16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:#f6f7fb; color:#1f2330}
-    .wrap{max-width:900px;margin:0 auto;padding:24px}
-    a{color:#635bff}
-    .card{background:#fff; border:1px solid #e6e8f0; border-radius:14px; padding:20px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta de Oposición</title>
+	<style>
+		body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #1e293b; max-width: 800px; margin: 20px auto; padding: 20px; border: none; }
+		body > p { 
+    font-weight: 600; /* Puedes usar 'bold' si quieres que sea aún más gruesa */
+    font-size: 1.05rem; /* Opcional: un pelín más grande para destacar mejor */
+    color: #0f172a; 
+}
+		h2 { color: #0f172a; font-size: 1.3rem; }
+		.opciones { list-style-type: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+		.opcion { padding: 16px 20px 16px 50px; margin-bottom: 0; border-radius: 12px; background-color: #ffffff; border: 1px solid #e2e8f0; color: #334155; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23cbd5e1" stroke-width="1.5"><circle cx="12" cy="12" r="9"></circle></svg>'); background-repeat: no-repeat; background-position: 16px center; background-size: 22px 22px; }
+		.correcta { background-color: #f0fdf4; border-color: #4ade80; font-weight: normal; color: #166534; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2316a34a" stroke-width="1.5"><circle cx="12" cy="12" r="9"></circle><path d="M8 12l3 3 5-6"></path></svg>'); }
+		/*.incorrecta { background-color: #fef2f2; border-color: #fca5a5; color: #991b1b; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ef4444" stroke-width="1.5"><circle cx="12" cy="12" r="9"></circle><path d="M9 9l6 6m0-6l-6 6"></path></svg>'); }*/
+		*.incorrecta{}
+		
+		 /* Ajustes para el desplegable */
+		details { margin-top: 20px; cursor: pointer; }
+		summary { font-weight: bold; color: #3b82f6; outline: none; margin-bottom: 10px; }
+		summary:hover { text-decoration: underline; color: #2563eb; }
+		
+		.desarrollo { background-color: #f8fafc; padding: 15px 20px; border-left: 4px solid #3b82f6; margin-top: 20px; border-radius: 0 8px 8px 0; border: 1px solid #e2e8f0; border-left-width: 4px; }
+		.verificacion { background-color: #f8fafc; padding: 15px 20px; border-left: 4px solid #3b82f6; margin-top: 20px; border-radius: 0 8px 8px 0; border: 1px solid #e2e8f0; border-left-width: 4px; }
+		
+		.fuente { font-size: 0.9em; color: #64748b; margin-top: 15px; font-style: italic; }
+		 hr { margin: 40px 0; border: 0; border-top: 1px solid #e2e8f0; }
+         /* Sección de Observaciones (Visible e independiente) */
+    .observaciones { 
+        background-color: #fffbeb; 
+        padding: 15px 20px; 
+        border-left: 4px solid #f59e0b; 
+        margin-top: 20px; 
+        margin-bottom: 20px; /* Margen inferior para separarlo del desplegable */
+        border-radius: 0 8px 8px 0; 
+        border: 1px solid #fde68a; 
+        border-left-width: 4px; 
+    }
+    
+    .observaciones h4 { 
+        margin-top: 0; 
+        margin-bottom: 8px; 
+        color: #b45309; 
+        font-size: 1.05rem; 
+        display: flex; 
+        align-items: center; 
+        gap: 8px; 
+    }
+    
+    .observaciones p { 
+        margin: 0; 
+        color: #78350f; 
+        font-size: 0.95rem; 
+        line-height: 1.5;
+		font-weight: normal;		
+    }
+	 </style>
 </head>
 <body>
-  <div class="wrap">
-    <p><a href="index.html">← Volver</a></p>
-    <h1>Administrativo</h1>
-    <p class="muted">200 preguntas disponibles.</p>
-    <div class="card">
-      <p>Espacio para iniciar práctica, configurar tiempos, o ver últimos intentos.</p>
-    </div>
-  </div>
+
+	<h2>Pregunta:</h2>
+    <p>1.- Según el Real Decreto Legislativo 5/2015, de 30 de octubre, por el que se aprueba el Texto Refundido de la Ley del Estatuto Básico del Empleado Público, son empleados públicos:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">a) Quienes desempeñan funciones no retribuidas en las Administraciones Públicas al servicio de los intereses generales.</li>
+        <li class="opcion incorrecta">b) Quienes desempeñan funciones retribuidas en las Administraciones Públicas al servicio de los intereses particulares.</li>
+        <li class="opcion correcta">c) Quienes desempeñan funciones retribuidas en las Administraciones Públicas al servicio de los intereses generales.</li>
+        <li class="opcion incorrecta">d) Quienes desempeñan funciones no retribuidas en las Administraciones Públicas al servicio de los intereses particulares.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Definición legal:</strong> Según el artículo 8.1 del TREBEP, la condición de empleado público requiere la concurrencia de dos elementos inseparables: el desempeño de <strong>funciones retribuidas</strong> y que estas se realicen <strong>al servicio de los intereses generales</strong>.</li>
+                <li><strong>Análisis de las opciones incorrectas:</strong>
+                    <ul>
+                        <li><strong>Opción A y D:</strong> Son incorrectas porque los empleados públicos siempre perciben una remuneración por sus servicios; el desempeño no puede ser "no retribuido".</li>
+                        <li><strong>Opción B:</strong> Es incorrecta porque el fin último de la Administración y sus empleados es el interés general (objetividad y servicio al ciudadano), nunca el servicio a intereses particulares.</li>
+                    </ul>
+                </li>
+                <li><strong>Clasificación:</strong> El personal que cumple esta definición se clasifica posteriormente en funcionarios de carrera, interinos, personal laboral y personal eventual.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios:</h3>
+            <p>La respuesta identificada en los documentos proporcionados coincide plenamente con el texto vigente del <strong>Real Decreto Legislativo 5/2015</strong> consultado en el BOE. No se han producido modificaciones en el artículo 8.1 desde su publicación original en 2015 que afecten a esta definición básica. La respuesta es jurídicamente sólida y actualizada a fecha de marzo de 2026.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> Real Decreto Legislativo 5/2015 (TREBEP), Título II, Capítulo I, Artículo 8, apartado 1.<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del Estado (BOE). Texto consolidado del Real Decreto Legislativo 5/2015.<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-11719#a8">BOE.es - Artículo 8 TREBEP</a>
+        </div>
+    </details>
+    <hr>
+
+	<h2>Pregunta:</h2>
+    <p>2.- Según el Real Decreto Legislativo 5/2015, de 30 de octubre, por el que se aprueba el Texto Refundido de la Ley del Estatuto Básico del Empleado Público, son funcionarios interinos, cuando se dé alguna de las siguientes circunstancias:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion correcta">A) La sustitución transitoria de los titulares, durante el tiempo estrictamente necesario.</li>
+        <li class="opcion incorrecta">B) La ejecución de programas de carácter temporal, que no podrán tener una duración superior a un año, ampliable hasta doce meses más por las leyes de Función Pública que se dicten en desarrollo de este Estatuto.</li>
+        <li class="opcion incorrecta">C) El exceso o acumulación de tareas por plazo máximo de nueve meses, dentro de un periodo de 3 años.</li>
+        <li class="opcion incorrecta">D) a) b) y c) son correctas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <p>El Artículo 10.1 del Real Decreto Legislativo 5/2015 (TREBEP), tras su actualización por la Ley 20/2021, establece cuatro circunstancias exactas para el nombramiento de funcionarios interinos. Analicemos por qué las otras opciones son incorrectas:</p>
+            <ul>
+                <li><strong>A) Es CORRECTA:</strong> Refleja literalmente el apartado 1.b) del artículo 10, que permite el nombramiento para "la sustitución transitoria de los titulares, durante el tiempo estrictamente necesario".</li>
+                <li><strong>B) Es INCORRECTA:</strong> La ejecución de programas de carácter temporal no podrá tener una duración superior a <strong>tres años</strong> (no un año), ampliable hasta doce meses más por las leyes de Función Pública correspondientes.</li>
+                <li><strong>C) Es INCORRECTA:</strong> El exceso o acumulación de tareas es por un plazo máximo de <strong>nueve meses</strong>, pero dentro de un periodo de <strong>dieciocho meses</strong> (no de 3 años).</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios:</h3>
+            <p>La respuesta coincide con lo estipulado en el documento base proporcionado (Real Decreto Legislativo 5/2015) y ha sido contrastada con la redacción vigente y consolidada del Boletín Oficial del Estado (BOE), concretamente tras la importante reforma introducida por la Ley 20/2021, de 28 de diciembre, de medidas urgentes para la reducción de la temporalidad en el empleo público. No ha sido necesario matizar la respuesta, ya que el texto oficial vigente respalda que únicamente la opción A es correcta, siendo las opciones B y C trampas habituales en materia de plazos.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> BOE-A-2015-11719 Real Decreto Legislativo 5/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley del Estatuto Básico del Empleado Público.<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del Estado (BOE) - Legislación consolidada del TREBEP, Artículo 10.1.<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-11719">https://www.boe.es/buscar/act.php?id=BOE-A-2015-11719</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>3.- Según el Real Decreto Legislativo 5/2015, de 30 de octubre, por el que se aprueba el Texto Refundido de la Ley del Estatuto Básico del Empleado Público, la Administración formalizará de oficio la finalización de la relación de interinidad por cualquiera de las siguientes causas, además de por las previstas en el artículo 63, sin derecho a compensación alguna:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Por la cobertura reglada del puesto por personal funcionario de carrera a través de cualquiera de los procedimientos legalmente establecidos.</li>
+        <li class="opcion incorrecta">B) Por razones organizativas que den lugar a la supresión o a la amortización de los puestos asignados.</li>
+        <li class="opcion incorrecta">C) Por la finalización de la causa que dio lugar a su nombramiento.</li>
+        <li class="opcion correcta">D) a) b) y c) son correctas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <p>El artículo 10.3 del Real Decreto Legislativo 5/2015 (TREBEP), actualizado por la Ley 20/2021 para la reducción de la temporalidad, establece claramente las causas por las cuales la Administración debe finalizar de oficio la relación de interinidad. Analicemos los puntos clave:</p>
+            <ul>
+                <li>Las causas enumeradas <strong>no otorgan derecho a compensación económica</strong> alguna y se suman a las causas generales de pérdida de la condición de funcionario del artículo 63 (renuncia, pérdida de nacionalidad, jubilación, sanción disciplinaria o pena principal/accesoria).</li>
+                <li><strong>A) Es correcta:</strong> El cese procede por la cobertura reglada del puesto por personal funcionario de carrera a través de cualquiera de los procedimientos legales establecidos (como un concurso u oposición).</li>
+                <li><strong>B) Es correcta:</strong> Procede por razones organizativas que den lugar a la supresión o amortización de los puestos asignados.</li>
+                <li><strong>C) Es correcta:</strong> El cese es obligatorio si finaliza la causa que dio lugar a su nombramiento (por ejemplo, el retorno del titular al que se estaba sustituyendo).</li>
+                <li><em>Nota adicional para examen:</em> Existe una cuarta causa en la ley que no aparece en las opciones, referida a "la finalización del plazo autorizado expresamente recogido en su nombramiento".</li>
+            </ul>
+            <p>Al ser válidas las opciones A, B y C por estar recogidas de forma literal en la norma, la respuesta D es la correcta.</p>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios:</h3>
+            <p>La respuesta es plenamente coincidente con el documento interno proporcionado (Real Decreto Legislativo 5/2015) y ha sido verificada en la legislación consolidada del Boletín Oficial del Estado (BOE). Concretamente, se ha contrastado el artículo 10.3 en su redacción actual dada por la Ley 20/2021, de 28 de diciembre, de medidas urgentes para la reducción de la temporalidad en el empleo público. No procede realizar ningún cambio en la respuesta documental inicial puesto que la norma establece que las tres situaciones descritas generan el cese del interino sin derecho a indemnización.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> BOE-A-2015-11719 Real Decreto Legislativo 5/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley del Estatuto Básico del Empleado Público.<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del Estado (BOE) - Legislación consolidada del TREBEP (Real Decreto Legislativo 5/2015), Artículo 10.3.<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-11719">https://www.boe.es/buscar/act.php?id=BOE-A-2015-11719</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>4.- Según el Real Decreto Legislativo 5/2015, de 30 de octubre, por el que se aprueba el Texto Refundido de la Ley del Estatuto Básico del Empleado Público, es personal laboral:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) El que, en virtud de contrato de trabajo formalizado por escrito, en cualquiera de las modalidades de contratación de personal previstas en la legislación laboral, presta servicios no retribuidos por las Administraciones Públicas.</li>
+        <li class="opcion correcta">B) El que, en virtud de contrato de trabajo formalizado por escrito, en cualquiera de las modalidades de contratación de personal previstas en la legislación laboral, presta servicios retribuidos por las Administraciones Públicas.</li>
+        <li class="opcion incorrecta">C) El que, en virtud de contrato de trabajo formalizado verbalmente, en cualquiera de las modalidades de contratación de personal previstas en la legislación laboral, presta servicios retribuidos por las Administraciones Públicas.</li>
+        <li class="opcion incorrecta">D) El que, en virtud de contrato de trabajo formalizado por escrito o verbalmente, en cualquiera de las modalidades de contratación de personal previstas en la legislación laboral, presta servicios no retribuidos por las Administraciones Públicas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <p>El artículo 11.1 del Real Decreto Legislativo 5/2015 (TREBEP) define claramente quién ostenta la condición de personal laboral al servicio de las Administraciones Públicas. Las claves para no fallar esta pregunta de examen se basan en dos requisitos fundamentales que deben cumplirse simultáneamente:</p>
+            <ul>
+                <li><strong>Debe ser formalizado por escrito:</strong> Las opciones C y D son incorrectas porque contemplan la posibilidad de un contrato formalizado "verbalmente". En la Administración Pública, el contrato laboral exige siempre forma escrita.</li>
+                <li><strong>Deben ser servicios retribuidos:</strong> Las opciones A y D son incorrectas porque mencionan servicios "no retribuidos". El trabajo para la Administración siempre conlleva una retribución económica a cambio de la prestación de servicios.</li>
+            </ul>
+            <p>Por tanto, solo la opción B reúne los requisitos literales exigidos por la norma.</p>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios:</h3>
+            <p>La respuesta es plenamente coincidente con el documento interno proporcionado y ha sido verificada en la legislación consolidada del Boletín Oficial del Estado (BOE). Se ha contrastado el artículo 11.1 del Real Decreto Legislativo 5/2015, confirmando que la redacción legal se mantiene intacta y vigente. No procede realizar ninguna corrección ni matización, ya que la definición legal de personal laboral exige ineludiblemente la forma escrita y el carácter retribuido de la prestación.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> BOE-A-2015-11719 Real Decreto Legislativo 5/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley del Estatuto Básico del Empleado Público.<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del Estado (BOE) - Legislación consolidada del TREBEP, Artículo 11.1.<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-11719">https://www.boe.es/buscar/act.php?id=BOE-A-2015-11719</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>5.- Según el Real Decreto Legislativo 5/2015, de 30 de octubre, por el que se aprueba el Texto Refundido de la Ley del Estatuto Básico del Empleado Público, es personal eventual:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion correcta">A) El que, en virtud de nombramiento y con carácter no permanente, sólo realiza funciones expresamente calificadas como de confianza o asesoramiento especial, siendo retribuido con cargo a los créditos presupuestarios consignados para este fin.</li>
+        <li class="opcion incorrecta">B) El que, en virtud de nombramiento y con carácter permanente, sólo realiza funciones expresamente calificadas como de confianza o asesoramiento especial, siendo retribuido con cargo a los créditos presupuestarios consignados para este fin.</li>
+        <li class="opcion incorrecta">C) El que, en virtud de nombramiento y con carácter permanente, realiza algunas funciones no calificadas como de confianza o asesoramiento especial, siendo retribuido con cargo a los créditos presupuestarios consignados para este fin.</li>
+        <li class="opcion incorrecta">D) a) b) y c) son incorrectas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Carácter no permanente:</strong> El personal eventual se nombra con carácter temporal o de libre designación, es decir, su vinculación no es permanente ni fija en la Administración, a diferencia del personal funcionario de carrera o laboral fijo. Su nombramiento y cese son libres.</li>
+                <li><strong>Funciones exclusivas de confianza o asesoramiento:</strong> Sus tareas están estrictamente limitadas a labores de confianza política o asesoramiento especial. No pueden desempeñar funciones ordinarias, estructurales o reservadas por ley a los funcionarios de carrera.</li>
+                <li><strong>Retribución específica:</strong> Su sueldo se abona con cargo a créditos presupuestarios consignados específica y exclusivamente para este fin.</li>
+                <li>Por tanto, las opciones B y C son incorrectas al afirmar que este personal tiene carácter "permanente" y, en el caso de la opción C, porque afirma erróneamente que realiza funciones "no calificadas como de confianza".</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios:</h3>
+            <p>La respuesta coincide plenamente con los documentos aportados y ha sido contrastada y confirmada con la legislación consolidada vigente en el BOE. No ha sido necesario realizar ningún cambio o matización, ya que el Artículo 12.1 del Real Decreto Legislativo 5/2015 (TREBEP) se mantiene en los términos exactos expuestos en la opción A.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> BOE-A-2015-11719 Real Decreto Legislativo 5/2015 (TREBEP), Título II, Capítulo I, Artículo 12.1 (referencia interna: ).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del Estado (BOE) - Legislación consolidada, Real Decreto Legislativo 5/2015 (Texto Refundido de la Ley del Estatuto Básico del Empleado Público), Artículo 12.1.<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-11719">BOE: Ley del Estatuto Básico del Empleado Público</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>6.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, el Ente Público Osakidetza-Servicio vasco de salud se define como:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Ente Público de Derecho Público, cuyo objeto o finalidad es la provisión de servicios sanitarios a través de las organizaciones públicas de servicios sanitarios dependientes del mismo.</li>
+        <li class="opcion incorrecta">B) Ente Público de Derecho Público, cuyo objeto o finalidad es la provisión de servicios sanitarios a través de las organizaciones privadas de servicios sanitarios dependientes del mismo.</li>
+        <li class="opcion correcta">C) Ente Público de Derecho Privado, cuyo objeto o finalidad es la provisión de servicios sanitarios a través de las organizaciones públicas de servicios sanitarios dependientes del mismo.</li>
+        <li class="opcion incorrecta">D) Ente Público de Derecho Privado, cuyo objeto o finalidad es la provisión de servicios sanitarios a través de las organizaciones privadas de servicios sanitarios dependientes del mismo.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Naturaleza Jurídica:</strong> Osakidetza se constituye como un <strong>Ente Público de Derecho Privado</strong>. Esta figura legal implica que, aunque es de titularidad y capital público (perteneciendo a la Administración de la Comunidad Autónoma de Euskadi), actúa bajo sometimiento al derecho privado en áreas concretas de su gestión para dotar a la organización de mayor agilidad operativa e independencia organizativa.</li>
+                <li><strong>Objeto Social:</strong> Su finalidad principal es la provisión de servicios sanitarios (promoción, preservación y restablecimiento de la salud).</li>
+                <li><strong>Red de provisión:</strong> Estos servicios se prestan estrictamente a través de <strong>organizaciones públicas</strong> de servicios sanitarios (hospitales, centros de salud, ambulatorios) que dependen de manera directa del propio Ente Público.</li>
+                <li>Por lo tanto, las opciones A y B son incorrectas al definirlo erróneamente como un "Ente Público de Derecho Público", y la opción D es incorrecta porque afirma que los servicios se proveen a través de "organizaciones privadas", lo cual atenta contra la base misma del sistema vasco de salud público.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimiento (que corresponde al Real Decreto Legislativo 5/2015, TREBEP, y no aborda normativas autonómicas específicas de salud). Por consiguiente, la respuesta se ha obtenido de manera exclusiva mediante la verificación en internet en fuentes oficiales del Gobierno Vasco y del Servicio Vasco de Salud. El <strong>Artículo 1 de los Estatutos Sociales de Osakidetza</strong> (aprobados por el Decreto 255/1997, de 11 de noviembre) confirma de forma literal el texto expuesto en la opción C. No hay contradicciones, simplemente se ha complementado el vacío del temario aportado con la legislación vigente.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo I, Artículo 1 (Definición).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>7.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, el Ente Público Osakidetza-Servicio vasco de salud tiene como fines:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Proporcionar a las personas que accedan a sus servicios las condiciones necesarias para el pleno ejercicio de sus derechos y deberes sin tener en cuenta la calidad de la misma.</li>
+        <li class="opcion incorrecta">B) Proporcionar a las personas que accedan a sus servicios las condiciones necesarias para el pleno ejercicio de sus derechos y deberes promoviendo la mejora continua de los niveles de información, siempre que dicha atención no sea personalizada.</li>
+        <li class="opcion correcta">C) Proporcionar a las personas que accedan a sus servicios las condiciones necesarias para el pleno ejercicio de sus derechos y deberes promoviendo la mejora continua de los niveles de información, la personalización en la atención y la calidad de la misma.</li>
+        <li class="opcion incorrecta">D) a) b) y c) son incorrectas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Fines de interés general:</strong> Según los Estatutos Sociales de Osakidetza, la entidad persigue una serie de fines para el desarrollo de su objeto social, centrados en el usuario y en la prestación de un servicio público de excelencia.</li>
+                <li><strong>Derechos y deberes:</strong> Se busca asegurar las condiciones necesarias para que los ciudadanos ejerzan de forma plena sus derechos y deberes (de carácter instrumental o complementario) al acceder a la red sanitaria.</li>
+                <li><strong>Tres pilares de mejora:</strong> La norma especifica expresamente que se debe promover la mejora continua en tres ámbitos clave: los niveles de <strong>información</strong>, la <strong>personalización</strong> en la atención y la <strong>calidad</strong> de la misma.</li>
+                <li>Por lo tanto, las opciones A y B son incorrectas por contradecir frontalmente el texto normativo al excluir el enfoque en la calidad o rechazar la atención personalizada, que son pilares fundamentales de Osakidetza.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimiento (ya que este corresponde al Real Decreto Legislativo 5/2015, TREBEP, que es de ámbito estatal y no incluye la normativa autonómica del País Vasco). Por consiguiente, la respuesta se ha obtenido íntegramente mediante la verificación en internet en fuentes oficiales del Gobierno Vasco y del Boletín Oficial del País Vasco (BOPV). El <strong>Artículo 2.b) de los Estatutos Sociales de Osakidetza</strong> (aprobados por el Decreto 255/1997, de 11 de noviembre) confirma de forma literal el texto expuesto en la opción C, indicando que se debe promover la mejora de la información, la personalización y la calidad de la atención.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo I, Artículo 2.b) (Fines).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>8.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, el Ente Público Osakidetza-Servicio vasco de salud NO tiene como fin:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Promover la docencia en ciencias de la salud.</li>
+        <li class="opcion incorrecta">B) Promover la formación y actualización de su personal sanitario.</li>
+        <li class="opcion incorrecta">C) Promover la formación y actualización de su personal no sanitario.</li>
+        <li class="opcion correcta">D) Promover la creación de empresas privadas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Fines de Osakidetza:</strong> El Decreto 255/1997 establece en su Artículo 2 los fines de interés general que persigue el Ente Público Osakidetza en el desarrollo de su objeto (la provisión de servicios sanitarios públicos).</li>
+                <li><strong>Fomento del conocimiento y capacitación:</strong> Entre estos fines, la normativa cita textualmente "promover la docencia e investigación en ciencias de la salud", así como "promover la formación y actualización tanto de su personal sanitario como del no sanitario". Esto descarta las opciones A, B y C.</li>
+                <li><strong>Carácter Público:</strong> En ningún apartado de sus Estatutos Sociales se recoge como fin la promoción o creación de empresas privadas. Su naturaleza y recursos están orientados a ejecutar la provisión del servicio público sanitario en la Comunidad Autónoma de Euskadi, no al emprendimiento privado mercantil.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimiento, dado que el archivo aportado corresponde al texto refundido de la Ley del Estatuto Básico del Empleado Público a nivel estatal (TREBEP) y no recoge la normativa propia autonómica de Osakidetza. Por tanto, la respuesta se ha obtenido íntegramente mediante la verificación en internet, consultando fuentes oficiales. El <strong>Artículo 2.c) y 2.d) del Decreto 255/1997, de 11 de noviembre (BOPV)</strong>, enumera explícitamente como fines la promoción de la docencia en ciencias de la salud y la formación continua del personal sanitario y no sanitario. Consecuentemente, la promoción de empresas privadas (opción D) no forma parte en absoluto de los fines del Ente Público, siendo esta la opción correcta al solicitarse la afirmación falsa ("NO tiene como fin").</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo I, Artículo 2 (Fines).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	
+	<h2>Pregunta:</h2>
+    <p>9.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, la organización rectora comprende a:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion correcta">A) Presidente y Consejo de Administración.</li>
+        <li class="opcion incorrecta">B) Director del centro y Consejo de Administración.</li>
+        <li class="opcion incorrecta">C) Dirección y Comité de empresa.</li>
+        <li class="opcion incorrecta">D) a) b) y c) son correctas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Estructura de gobierno:</strong> Según los Estatutos Sociales de Osakidetza (Decreto 255/1997), el Ente Público cuenta con unos órganos de gobierno y gestión claramente diferenciados.</li>
+                <li><strong>Organización Rectora:</strong> La normativa establece de forma explícita que la <em>Organización Rectora</em> (el máximo órgano de gobierno y dirección estratégica) está compuesta exclusivamente por dos figuras: el <strong>Presidente</strong> (cuyo cargo recae en el Consejero/a de Sanidad) y el <strong>Consejo de Administración</strong>.</li>
+                <li><strong>Descarte de opciones:</strong> Las opciones B y C son incorrectas porque mezclan órganos de gestión ejecutiva (como el Director del centro o la Dirección General) o de representación laboral (Comité de empresa) que no forman parte estricta de la "Organización Rectora" a nivel estatutario.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimiento (el cual corresponde al Texto Refundido del Estatuto Básico del Empleado Público a nivel estatal, TREBEP, y no abarca normativa autonómica vasca). Por lo tanto, la respuesta se ha obtenido íntegramente mediante la búsqueda y verificación en fuentes oficiales en internet. El <strong>Artículo 6 (Enumeración) del Decreto 255/1997, de 11 de noviembre</strong>, publicado en el Boletín Oficial del País Vasco (BOPV), establece literalmente que <em>"la organización rectora del Ente Público Osakidetza-Servicio vasco de salud comprende a su Presidente y al Consejo de Administración"</em>. No hay discrepancias y se confirma que la opción A es la correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo II (De la Organización Rectora), Artículo 6 (Enumeración).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>10.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, la Presidencia corresponde a:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Lehendakari.</li>
+        <li class="opcion correcta">B) Consejero de Sanidad.</li>
+        <li class="opcion incorrecta">C) Kutxa Fundazioa.</li>
+        <li class="opcion incorrecta">D) Presidente del Gobierno.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Organización Rectora:</strong> La estructura de gobierno supremo de Osakidetza está formada por el Presidente y el Consejo de Administración.</li>
+                <li><strong>Titularidad de la Presidencia:</strong> El Artículo 7 de los Estatutos Sociales de Osakidetza (Decreto 255/1997) establece literalmente que "corresponderá la presidencia del Ente Público Osakidetza-Servicio vasco de salud al Consejero de Sanidad". (Cabe destacar que en la actualidad la denominación orgánica del departamento suele ser "Salud", pero la redacción legal originaria del Decreto y la opción del test mantienen el término "Sanidad").</li>
+                <li><strong>Descarte de opciones:</strong> El Lehendakari (opción A) y el Presidente del Gobierno (opción D) ostentan la máxima representación ejecutiva autonómica y estatal respectivamente, pero no presiden directamente este ente instrumental. Kutxa Fundazioa (opción C) es una fundación bancaria privada sin ninguna relación funcional ni legal con la presidencia del servicio vasco de salud público.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimiento, ya que dicho texto corresponde al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, el cual no regula la estructura orgánica interna de entes autonómicos como Osakidetza. Por ello, la respuesta se ha obtenido íntegramente mediante verificación externa en fuentes oficiales en internet. Consultando el <strong>Artículo 7 del Decreto 255/1997, de 11 de noviembre</strong>, publicado en el Boletín Oficial del País Vasco (BOPV), se confirma de forma explícita que la presidencia recae en el Consejero de Sanidad. No hay contradicciones ni necesidad de cambios, por lo que la opción B es correcta conforme al texto normativo vigente.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo II (De la Organización Rectora), Artículo 7 (Presidencia).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>11.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, cuál de estas funciones de la Presidencia es FALSA:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Ejercer la representación del Ente Público.</li>
+        <li class="opcion incorrecta">B) Supervisar las operaciones del Ente Público y presentar al Consejo de Administración los informes que considere oportunos.</li>
+        <li class="opcion incorrecta">C) Ejercer la representación del Consejo de Administración.</li>
+        <li class="opcion correcta">D) No tiene potestad para supervisar las operaciones del Ente Público.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Funciones de la Presidencia:</strong> El Artículo 7 de los Estatutos Sociales de Osakidetza (aprobados por el Decreto 255/1997) enumera las atribuciones específicas de la persona que ostenta la presidencia (el Consejero/a de Sanidad).</li>
+                <li><strong>Representación legal:</strong> La normativa le otorga de manera explícita la potestad de ejercer la representación tanto del propio Ente Público como de su Consejo de Administración. Esto confirma que las opciones A y C son verdaderas.</li>
+                <li><strong>Supervisión operativa:</strong> La ley dictamina literalmente que es función de la Presidencia "Supervisar las operaciones del Ente Público y presentar al Consejo de Administración los informes que considere oportunos". Esto ratifica la opción B como verdadera.</li>
+                <li><strong>Afirmación falsa:</strong> Por consiguiente, la opción D es la única afirmación incorrecta, ya que niega frontalmente una competencia supervisora que el Decreto sí atribuye directamente al Presidente.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimiento (ya que este aborda el Real Decreto Legislativo 5/2015 del TREBEP a nivel estatal y no el marco estatutario autonómico de Osakidetza). En consecuencia, la respuesta se ha fundamentado exclusivamente mediante la verificación externa en fuentes legales oficiales. La consulta al <strong>Artículo 7.2 del Decreto 255/1997, de 11 de noviembre</strong> en el Boletín Oficial del País Vasco (BOPV) confirma que la Presidencia sí tiene potestad expresa para la supervisión de las operaciones, haciendo de la opción D la afirmación manifiestamente falsa que exige el enunciado de la pregunta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo II (De la Organización Rectora), Artículo 7.2 (Presidencia).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>12.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, el Consejo de Administración se encarga principalmente de:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Asesoramiento a otras empresas.</li>
+        <li class="opcion incorrecta">B) Formación e información.</li>
+        <li class="opcion incorrecta">C) Comunicación y redes sociales.</li>
+        <li class="opcion correcta">D) Dirigir y controlar sus actuaciones.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Naturaleza del órgano:</strong> El Consejo de Administración constituye el órgano colegiado supremo de dirección de Osakidetza.</li>
+                <li><strong>Misión principal:</strong> Según el Artículo 8 de los Estatutos Sociales (Decreto 255/1997), al Consejo de Administración se le atribuye expresamente la responsabilidad fundamental de "dirigir y controlar las actuaciones" del Ente Público.</li>
+                <li><strong>Descarte de opciones:</strong> Las funciones relacionadas con la formación e información (opción B), la comunicación/redes sociales (opción C) o el asesoramiento a otras empresas (opción A) no son competencias directrices de este órgano de gobierno máximo, sino en todo caso operativas (competencias de divisiones técnicas o direcciones generales concretas), y desde luego el asesoramiento a empresas ajenas no entra dentro de los fines públicos de Osakidetza.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento base proporcionado (el Texto Refundido de la Ley del Estatuto Básico del Empleado Público, TREBEP), dado que este regula aspectos generales a nivel estatal y no incluye la normativa autonómica específica sobre la organización de Osakidetza. Por ello, la respuesta se ha obtenido íntegramente de la verificación en fuentes oficiales externas. Al consultar el <strong>Artículo 8.1 del Decreto 255/1997, de 11 de noviembre</strong> publicado en el Boletín Oficial del País Vasco (BOPV), se ratifica textualmente que la función principal del Consejo de Administración es "dirigir y controlar las actuaciones del ente", confirmando que la opción D es la única correcta sin lugar a dudas.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo II (De la Organización Rectora), Artículo 8 (El Consejo de Administración).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>13.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, el Consejo de Administración está compuesto por:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Seis miembros en representación de la Administración de la Comunidad Autónoma.</li>
+        <li class="opcion incorrecta">B) Ocho miembros en representación de la Administración de la Comunidad Autónoma.</li>
+        <li class="opcion correcta">C) Presidente del Ente Público y cinco miembros en representación de la Administración de la Comunidad Autónoma.</li>
+        <li class="opcion incorrecta">D) Presidente del Ente Público y el Lehendakari.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Composición del órgano colegiado:</strong> Según el Artículo 8.2 de los Estatutos Sociales de Osakidetza (Decreto 255/1997), el Consejo de Administración está integrado por un total de seis personas.</li>
+                <li><strong>Distribución de los miembros:</strong> La estructura se compone del <strong>Presidente del Ente Público</strong> (cargo que recae en el Consejero/a de Sanidad, actual Consejería de Salud) y <strong>cinco miembros</strong> adicionales que actúan en representación de la Administración de la Comunidad Autónoma de Euskadi.</li>
+                <li><strong>Nombramiento (Dato extra de examen):</strong> Estos cinco miembros son nombrados por el Gobierno Vasco: dos a propuesta del Consejero de Hacienda y Administración Pública, y los tres restantes a propuesta del Consejero de Sanidad.</li>
+                <li><strong>Descarte de opciones:</strong> Las opciones A y B son incorrectas porque omiten la figura fundamental del Presidente y alteran el número de representantes autonómicos. La opción D es incorrecta porque el Lehendakari no forma parte de este Consejo de Administración; la máxima autoridad en este órgano es el Consejero/a del ramo.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimiento, dado que el archivo aportado corresponde al texto refundido de la Ley del Estatuto Básico del Empleado Público a nivel estatal (TREBEP) y no recoge la normativa propia autonómica de Osakidetza. Por tanto, la respuesta se ha obtenido y verificado de manera exclusiva mediante fuentes oficiales en internet. La consulta del <strong>Artículo 8.2 del Decreto 255/1997, de 11 de noviembre</strong> en el Boletín Oficial del País Vasco (BOPV) confirma literalmente que la composición es "el Presidente del Ente Público, con cinco miembros en representación de la Administración de la Comunidad Autónoma". No existe ninguna contradicción legal actual, por lo que la opción C es estrictamente correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo II (De la Organización Rectora), Artículo 8.2 (El Consejo de Administración).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>14.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, corresponde al Presidente del Ente Público:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Convocar, presidir, suspender y levantar las sesiones del Consejo de Administración.</li>
+        <li class="opcion incorrecta">B) Arbitrar las deliberaciones del Consejo de Administración.</li>
+        <li class="opcion incorrecta">C) Decidir los empates con su voto de calidad en las sesiones del Consejo de Administración.</li>
+        <li class="opcion correcta">D) a) b) y c) son correctas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Doble condición:</strong> El Presidente del Ente Público (el Consejero/a de Sanidad) ostenta simultáneamente la condición de Presidente del Consejo de Administración.</li>
+                <li><strong>Dinámica de las sesiones:</strong> En su calidad de presidente de este órgano colegiado, la normativa le atribuye las potestades organizativas para convocar, presidir, suspender y levantar las sesiones correspondientes.</li>
+                <li><strong>Moderación y resolución:</strong> Del mismo modo, le corresponde arbitrar las deliberaciones que surjan durante el debate y posee la facultad de decidir los empates en las votaciones mediante su voto de calidad.</li>
+                <li><strong>Conclusión:</strong> Dado que las opciones A, B y C enuncian facultades recogidas de forma explícita y literal en los Estatutos Sociales respecto al rol del Presidente en el Consejo de Administración, la opción D es la única correcta.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimiento (ya que este aborda la normativa general del TREBEP a nivel estatal). Por consiguiente, la respuesta se ha obtenido mediante la verificación externa en fuentes oficiales en internet. La consulta del <strong>Artículo 8.3 del Decreto 255/1997, de 11 de noviembre</strong> en el Boletín Oficial del País Vasco (BOPV) confirma textualmente que compete al Presidente "convocar, presidir, suspender y levantar las sesiones, arbitrar las deliberaciones del Consejo de Administración y decidir los empates con su voto de calidad". Por lo tanto, no hay discrepancias normativas y la opción D es totalmente válida.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo II (De la Organización Rectora), Artículo 8.3 (El Consejo de Administración).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>15.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, el Consejo de Administración tiene las siguientes funciones:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Aprobar, a propuesta del Presidente, los criterios y líneas generales de actuación del Ente Público y de todas las organizaciones dependientes del mismo.</li>
+        <li class="opcion incorrecta">B) Aprobar la propuesta de Presupuestos, Estados Financieros Previsionales y Memoria anual de actividades del Ente Público.</li>
+        <li class="opcion incorrecta">C) Aprobar, a propuesta del Director General, el Plan Estratégico del Ente Público.</li>
+        <li class="opcion correcta">D) a) b) y c) son correctas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Órgano Supremo:</strong> El Consejo de Administración es el máximo órgano colegiado encargado de dirigir y controlar a Osakidetza. Sus competencias están orientadas a la planificación y dirección estratégica y presupuestaria.</li>
+                <li><strong>Competencias Estratégicas y Directivas:</strong> Según el Decreto 255/1997, entre sus principales funciones se encuentran:
+                    <ul>
+                        <li><strong>Aprobar los criterios y líneas generales</strong> de actuación del Ente Público y de sus organizaciones dependientes, siempre a propuesta del Presidente (opción A).</li>
+                        <li><strong>Aprobar el área financiera y de cuentas</strong>, lo que incluye la propuesta de Presupuestos, Estados Financieros Previsionales y la Memoria anual de actividades del Ente (opción B).</li>
+                        <li><strong>Aprobar el Plan Estratégico</strong> de Osakidetza, en este caso a propuesta del Director General (opción C).</li>
+                    </ul>
+                </li>
+                <li><strong>Conclusión:</strong> Al ser exactas y complementarias las tres primeras afirmaciones respecto a las funciones del Consejo de Administración dictadas por los Estatutos Sociales, la respuesta correcta es la D.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimiento, dado que dicho texto se refiere exclusivamente al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, y no desarrolla la normativa autonómica interna del Servicio Vasco de Salud. Por lo tanto, la respuesta se ha obtenido íntegramente de la verificación en internet consultando fuentes oficiales. El <strong>Artículo 8.4 del Decreto 255/1997, de 11 de noviembre</strong> (publicado en el Boletín Oficial del País Vasco) enumera exactamente estas funciones en sus apartados a), b) y c). No existen discrepancias ni conflictos normativos, confirmando que la opción D es la correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo II (De la Organización Rectora), Artículo 8.4 (Funciones del Consejo de Administración).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>16.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, al Director General NO le corresponde en sus funciones:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Ejercer la dirección de todos los servicios y del personal del Ente Público.</li>
+        <li class="opcion correcta">B) En los Consejos de Administración decidir los empates con su voto de calidad.</li>
+        <li class="opcion incorrecta">C) Ejecutar los acuerdos del Consejo de Administración.</li>
+        <li class="opcion incorrecta">D) Nombrar y separar a los Directores-Gerentes de las organizaciones de servicios sanitarios del Ente Público.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Funciones del Director General:</strong> El Artículo 15 de los Estatutos Sociales de Osakidetza enumera ampliamente las competencias de la Dirección General. Entre ellas se incluyen explícitamente ejecutar los acuerdos del Consejo de Administración (opción C), ejercer la dirección de todos los servicios y del personal del Ente (opción A) y nombrar o separar a los Directores-Gerentes de las distintas organizaciones de servicios sanitarios (opción D).</li>
+                <li><strong>Atribuciones de la Presidencia:</strong> Tal y como se abordó en normativas anteriores, la potestad de arbitrar deliberaciones y decidir los empates con su voto de calidad en el seno del Consejo de Administración es una facultad indelegable y exclusiva del <strong>Presidente del Ente Público</strong> (el Consejero/a de Sanidad), y no del Director General.</li>
+                <li><strong>Conclusión:</strong> Por tanto, la opción B es la afirmación FALSA respecto a las funciones atribuidas a la Dirección General, convirtiéndola en la opción correcta para esta pregunta.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimiento, ya que dicho texto (Real Decreto Legislativo 5/2015, TREBEP) es de ámbito estatal y no regula la estructura u organigrama autonómico de Osakidetza. Por ello, la respuesta se ha fundamentado íntegramente mediante la verificación externa en fuentes oficiales en internet. La consulta del <strong>Artículo 8.3 y el Artículo 15 del Decreto 255/1997, de 11 de noviembre</strong> en el Boletín Oficial del País Vasco (BOPV) ratifica que las opciones A, C y D corresponden a la Dirección General, mientras que el "voto de calidad" para desempatar (opción B) recae en la figura de la Presidencia. No existen contradicciones, con lo que la opción B es indiscutiblemente la afirmación falsa.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo III (Del Director General), Artículo 15 (Funciones), y Capítulo II (De la Organización Rectora), Artículo 8.3 (Presidencia).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>17.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, corresponde a la organización central de administración y gestión corporativa:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Establecer las reglas generales sobre representación, comunicación e imagen oficial, de acuerdo con las normas gubernamentales correspondientes.</li>
+        <li class="opcion incorrecta">B) Elaborar el Plan estratégico del Ente Público.</li>
+        <li class="opcion incorrecta">C) Suministrar servicios comunes de asesoramiento y apoyo técnico.</li>
+        <li class="opcion correcta">D) a) b) y c) son correctas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Organización Central:</strong> En Osakidetza, la <em>organización central de administración y gestión corporativa</em> es la estructura directiva encargada de dar apoyo al Consejo de Administración y prestar servicios transversales a toda la red sanitaria. Sus funciones están detalladas en el Artículo 12 de los Estatutos Sociales (Decreto 255/1997).</li>
+                <li><strong>Funciones transversales y estratégicas:</strong> Entre las atribuciones explícitas que recoge la normativa para esta organización central destacan:
+                    <ul>
+                        <li><strong>Establecer las reglas generales</strong> relativas a la representación, la comunicación y la imagen oficial del ente, de acuerdo con las normativas del Gobierno (opción A).</li>
+                        <li><strong>Elaborar el Plan estratégico</strong> de Osakidetza, en el que se fijan los objetivos y las líneas de acción de toda la entidad (opción B).</li>
+                        <li><strong>Suministrar servicios comunes</strong> de asesoramiento y apoyo técnico a las distintas organizaciones sanitarias (hospitales, ambulatorios) en materias como presupuestos, recursos humanos, informática, asuntos jurídicos y publicaciones (opción C).</li>
+                    </ul>
+                </li>
+                <li><strong>Conclusión:</strong> Dado que las tres primeras opciones recogen atribuciones literales de la organización central de administración y gestión corporativa, la respuesta correcta engloba a todas ellas.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimiento (el Real Decreto Legislativo 5/2015 o TREBEP, que se aplica al personal a nivel estatal y no incluye reglamentos autonómicos corporativos de Osakidetza). En consecuencia, la respuesta se ha obtenido íntegramente de la verificación en internet en fuentes del Gobierno Vasco. La revisión del <strong>Artículo 12 del Decreto 255/1997, de 11 de noviembre</strong> en el Boletín Oficial del País Vasco (BOPV) constata de forma literal que las funciones citadas en las opciones A, B y C corresponden estrictamente a la organización central de administración y gestión corporativa del Ente Público. No hay contradicciones, con lo que la opción D es indiscutiblemente la correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo III (De la Organización Central), Artículo 12 (Funciones).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>18.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, NO corresponde a la organización central en materia específica de gestión de recursos humanos la siguiente facultad:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Dirigir el funcionamiento del registro de personal.</li>
+        <li class="opcion correcta">B) Elaborar el Plan estratégico del Ente Público.</li>
+        <li class="opcion incorrecta">C) Supervisar, controlar y evaluar las políticas de personal del Ente.</li>
+        <li class="opcion incorrecta">D) Gestionar los procesos de selección y de provisión.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Funciones de la Organización Central:</strong> El Artículo 12 del Decreto 255/1997 divide las competencias de la organización central de Osakidetza en distintos ámbitos.</li>
+                <li><strong>Competencias en Recursos Humanos:</strong> En su apartado 5, la norma establece las atribuciones <em>"en materia específica de gestión de recursos humanos"</em>, enumerando expresamente:
+                    <ul>
+                        <li>Dirigir el funcionamiento del registro de personal (opción A).</li>
+                        <li>Supervisar, controlar y evaluar las políticas de personal del Ente (opción C).</li>
+                        <li>Gestionar los procesos de selección y de provisión que determine el Consejo de Administración (opción D).</li>
+                    </ul>
+                </li>
+                <li><strong>Plan Estratégico:</strong> La elaboración del Plan estratégico del Ente Público (opción B) sí es una competencia de la organización central, pero es una función directiva y corporativa general (regulada en el Artículo 12.2), no una competencia que recaiga dentro de la "materia específica de gestión de recursos humanos". Por tanto, al solicitarse la función que NO encaja en la materia específica de personal, la opción B es la correcta.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimiento, dado que dicho texto se refiere exclusivamente al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, y no desarrolla la normativa autonómica sobre la organización de Osakidetza. Por tanto, la respuesta se ha obtenido mediante la verificación en internet consultando fuentes oficiales. La revisión del <strong>Artículo 12.2 y 12.5 del Decreto 255/1997, de 11 de noviembre</strong> (publicado en el Boletín Oficial del País Vasco) confirma de forma exacta que la opción B no corresponde al bloque de recursos humanos, sino a las atribuciones de planificación general. No hay discrepancias con el enunciado, siendo la opción B inequívocamente la falsa dentro de esa categoría.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo III (De la Organización Central), Artículo 12.2 y 12.5 (Funciones).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>19.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, cual de estas afirmaciones es correcta en referencia a las facultades de las organizaciones de servicios:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion correcta">A) Corresponde a cada organización de servicios del Ente Público Osakidetza-Servicio vasco de salud el ejercicio de todas las facultades de gestión y administración que se requieran para el ejercicio de la actividad de provisión de servicios que tengan encomendada, quedando excluidas únicamente aquellas facultades de gestión centralizada que los presentes Estatutos atribuyen expresamente.</li>
+        <li class="opcion incorrecta">B) NO es responsabilidad de cada organización de servicios del Ente Público Osakidetza-Servicio vasco de salud el ejercicio de todas las facultades de gestión y administración que se requieran para el ejercicio de la actividad de provisión de servicios que tengan encomendada, quedando excluidas únicamente aquellas facultades de gestión centralizada que los presentes Estatutos atribuyen expresamente.</li>
+        <li class="opcion incorrecta">C) SÓLO es responsabilidad de algunas organizaciones de servicios con características específicas del Ente Público Osakidetza-Servicio vasco de salud el ejercicio de todas las facultades de gestión y administración que se requieran para el ejercicio de la actividad de provisión de servicios que tengan encomendada, quedando excluidas únicamente aquellas facultades de gestión centralizada que los presentes Estatutos atribuyen expresamente.</li>
+        <li class="opcion incorrecta">D) Corresponde a cada organización de servicios del Ente Público Osakidetza-Servicio vasco de salud el ejercicio de todas las facultades de gestión y administración que se requieran para el ejercicio de la actividad de provisión de servicios que tengan encomendada, quedando incluidas aquellas facultades de gestión centralizada que los presentes Estatutos atribuyen expresamente.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Principio de descentralización y autonomía:</strong> Osakidetza se rige por un modelo organizativo que dota de autonomía de gestión a sus organizaciones de servicios (hospitales, ambulatorios, OSIs).</li>
+                <li><strong>Atribución de facultades:</strong> El Decreto 255/1997 determina que estas organizaciones ostentan todas las facultades de administración y gestión necesarias para poder llevar a cabo su labor asistencial diaria y proveer los servicios sanitarios que tienen encomendados.</li>
+                <li><strong>Excepciones (Límites):</strong> Esta autonomía no es absoluta. Quedan excluidas de su competencia aquellas facultades de "gestión centralizada" (como la elaboración del Plan Estratégico general, el establecimiento de la imagen oficial o las políticas globales de RRHH) que los Estatutos atribuyen de forma expresa y exclusiva a la organización central del Ente Público.</li>
+                <li><strong>Descarte de opciones:</strong> La opción B es falsa al negar esta responsabilidad; la opción C es falsa al limitarlo "sólo a algunas organizaciones con características específicas"; y la opción D es falsa porque afirma que las organizaciones de servicios "tienen incluidas" las facultades centralizadas, lo cual es contradictorio.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimientos, ya que este documento corresponde al Real Decreto Legislativo 5/2015 (TREBEP) a nivel estatal y no contiene la normativa de estructuración autonómica del Servicio Vasco de Salud. Por lo tanto, la respuesta se ha obtenido y verificado de manera exclusiva mediante fuentes oficiales en internet. La consulta del <strong>Artículo 14.1 del Decreto 255/1997, de 11 de noviembre</strong> en el Boletín Oficial del País Vasco (BOPV) confirma literalmente el texto expuesto en la opción A, corroborando que cada organización tiene las facultades de gestión necesarias, excluyendo únicamente las de gestión centralizada. La opción A es indiscutiblemente correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo IV (De las Organizaciones de Servicios), Artículo 14.1 (Facultades de las organizaciones de servicios).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>20.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, al frente de cada organización de servicios sanitarios del Ente Público se encontrará:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) El Presidente.</li>
+        <li class="opcion correcta">B) Un Director-Gerente.</li>
+        <li class="opcion incorrecta">C) El Consejo de Administración.</li>
+        <li class="opcion incorrecta">D) El Responsable de Recursos Humanos.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Estructura Descentralizada:</strong> Osakidetza se divide en organizaciones de servicios sanitarios (como hospitales o las actuales Organizaciones Sanitarias Integradas - OSIs) que cuentan con autonomía de gestión.</li>
+                <li><strong>Figura Directiva Local:</strong> El Decreto 255/1997 establece expresamente que al frente de cada una de estas organizaciones de servicios sanitarios se encontrará un <strong>Director-Gerente</strong>. Este cargo directivo ostenta la representación oficial de su respectiva organización y ejerce la autoridad directa dentro de la misma.</li>
+                <li><strong>Descarte de opciones:</strong> 
+                    <ul>
+                        <li>El <strong>Presidente</strong> (opción A) y el <strong>Consejo de Administración</strong> (opción C) son los órganos rectores supremos de todo el Ente Público Osakidetza en su conjunto, no de cada centro asistencial de forma individual.</li>
+                        <li>El <strong>Responsable de Recursos Humanos</strong> (opción D) es un cargo técnico-funcional que puede existir en las organizaciones, pero no es la figura de máxima autoridad al frente del centro.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, ya que el archivo facilitado corresponde al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal y no incluye los estatutos organizativos del Servicio Vasco de Salud. Por tanto, la respuesta se ha obtenido de manera exclusiva mediante verificación externa en fuentes oficiales en internet. La consulta del <strong>Artículo 15.1 del Decreto 255/1997, de 11 de noviembre</strong> en el Boletín Oficial del País Vasco (BOPV) confirma literalmente que "Al frente de cada organización de servicios sanitarios del Ente Público se encontrará un Director-Gerente". No hay contradicción alguna, por lo que la opción B es indiscutiblemente la correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo IV (De las organizaciones de servicios), Artículo 15.1 (Régimen orgánico y funcional).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>21.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, cuál de estas afirmaciones es FALSA. Al Director-Gerente le corresponderá:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Ostentar la representación oficial de la organización y ejercer la autoridad directa dentro de la misma.</li>
+        <li class="opcion incorrecta">B) Dirigir e impulsar la investigación, docencia y formación en el seno de su organización.</li>
+        <li class="opcion incorrecta">C) Suscribir el contrato-programa en representación de la organización respectiva.</li>
+        <li class="opcion correcta">D) Dirigir e impulsar la investigación, docencia y formación en el seno de las Universidades y Centros de Formación Profesional privados.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Funciones del Director-Gerente:</strong> El Decreto 255/1997 enumera en su Artículo 15 las atribuciones de la persona que ocupa la Dirección-Gerencia al frente de una organización de servicios (por ejemplo, un hospital o una OSI).</li>
+                <li><strong>Representación y Contratos:</strong> Entre sus competencias reales se encuentran ostentar la representación oficial de la organización, ejercer la autoridad directa sobre la misma (opción A) y suscribir el contrato-programa que vincula a su centro con las directrices generales (opción C).</li>
+                <li><strong>Docencia e Investigación:</strong> La normativa le otorga la función de "dirigir e impulsar la investigación, docencia y formación", pero especifica claramente que debe ser <strong>"en el seno de su organización"</strong> (opción B).</li>
+                <li><strong>La afirmación falsa:</strong> La opción D es incorrecta —y por tanto es la respuesta que debes marcar— porque un Director-Gerente de Osakidetza no tiene competencias, jurisdicción ni autoridad para dirigir la formación o la investigación dentro de entidades externas, y mucho menos en Universidades o Centros de Formación Profesional <em>privados</em>.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimientos, ya que el archivo adjunto corresponde al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal y no incluye los estatutos de Osakidetza. Por ello, la respuesta se ha obtenido de manera exclusiva mediante la verificación externa en fuentes oficiales en internet. La consulta del <strong>Artículo 15.1 del Decreto 255/1997, de 11 de noviembre</strong> en el Boletín Oficial del País Vasco (BOPV) confirma textualmente que las opciones A, B y C son competencias literales del Director-Gerente. La opción D manipula el texto original del apartado d) de dicho artículo añadiendo instituciones privadas externas, lo cual la convierte de forma indiscutible en la afirmación falsa.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo IV (De las organizaciones de servicios), Artículo 15.1.a, 15.1.b y 15.1.d (Régimen orgánico y funcional).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>22.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, con carácter ordinario, a la Dirección Médica le corresponderán las siguientes atribuciones:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Dirigir, coordinar y evaluar las actividades de gestión administrativa.</li>
+        <li class="opcion incorrecta">B) Dirigir, coordinar y evaluar las actividades de la Dirección General.</li>
+        <li class="opcion correcta">C) Presidir los Consejos Técnicos de participación profesional y promover su eficaz funcionamiento.</li>
+        <li class="opcion incorrecta">D) Dirigir, coordinar y evaluar la gestión de recursos humanos.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Funciones de la Dirección Médica:</strong> En la estructura de las organizaciones de servicios de Osakidetza, la Dirección Médica asume competencias clave vinculadas al área clínico-asistencial y a la participación de los facultativos y profesionales sanitarios.</li>
+                <li><strong>Atribuciones explícitas:</strong> El Decreto 255/1997 le otorga, con carácter ordinario, la atribución directa de "presidir los Consejos Técnicos de participación profesional y promover su eficaz funcionamiento" (opción C). Asimismo, le compete dirigir, coordinar y evaluar las actividades clínico-asistenciales y promover la docencia e investigación de su personal.</li>
+                <li><strong>Descarte de opciones:</strong>
+                    <ul>
+                        <li><strong>Opción A:</strong> Las actividades de gestión administrativa ordinaria o económico-financiera no corresponden a la rama médica, sino a la Dirección Económico-Financiera (o de Gestión).</li>
+                        <li><strong>Opción B:</strong> La Dirección General es el órgano central jerárquicamente superior; una Dirección Médica local de una organización de servicios no tiene potestad para dirigirla o evaluarla.</li>
+                        <li><strong>Opción D:</strong> La planificación y evaluación general en materia de recursos humanos de la organización es competencia de la Dirección de Personal (o de Recursos Humanos).</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, dado que dicho texto se refiere exclusivamente al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, y no desarrolla la normativa autonómica interna del Servicio Vasco de Salud. Por lo tanto, la respuesta se ha obtenido íntegramente de la verificación en internet, consultando fuentes oficiales. La revisión del <strong>Decreto 255/1997, de 11 de noviembre</strong> (publicado en el Boletín Oficial del País Vasco) confirma de forma exacta y literal que a la Dirección Médica le corresponde presidir los Consejos Técnicos de participación profesional. No existen discrepancias, lo que certifica la opción C como correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Atribuciones de la Dirección Médica.<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/y22-bopv/es/bopv2/datos/1997/11/9705728a.shtml">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	
+	<h2>Pregunta:</h2>
+    <p>23.- Según el Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público Osakidetza-Servicio vasco de salud, señala cuál de estas afirmaciones es correcta:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Las organizaciones que componen el Ente Público de Osakidetza-Servicio vasco de la salud no llevarán la información económico-financiera, elaborada de acuerdo a los criterios del Plan General de Contabilidad adaptado a las empresas de asistencia sanitaria.</li>
+        <li class="opcion incorrecta">B) Tanto el Ente Público Osakidetza-Servicio vasco de salud como cada una de las organizaciones que lo componen llevará su propia información económico-financiera, no siendo elaborada de acuerdo a los criterios del Plan General de Contabilidad adaptado a las empresas de asistencia sanitaria.</li>
+        <li class="opcion correcta">C) Tanto el Ente Público Osakidetza-Servicio vasco de salud como cada una de las organizaciones que lo componen llevará su propia información económico-financiera, elaborada de acuerdo a los criterios del Plan General de Contabilidad adaptado a las empresas de asistencia sanitaria. Esta información económico-financiera se ajustará asimismo a lo que la normativa en materia de control y contabilidad establezca para los Entes Públicos de Derecho Privado.</li>
+        <li class="opcion incorrecta">D) a) b) y c) son incorrectas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Autonomía y Registro Propio:</strong> El Decreto 255/1997 establece que tanto Osakidetza a nivel corporativo general como cada una de sus organizaciones de servicios llevarán su propia información económico-financiera de forma individualizada.</li>
+                <li><strong>Plan General de Contabilidad:</strong> Esta contabilidad no se lleva mediante criterios arbitrarios, sino que debe elaborarse estrictamente siguiendo las directrices del <em>Plan General de Contabilidad adaptado a las empresas de asistencia sanitaria</em>.</li>
+                <li><strong>Naturaleza Jurídica:</strong> Dado que Osakidetza se constituye como un Ente Público de Derecho Privado, la información financiera debe ajustarse obligatoriamente a la normativa específica de control y contabilidad dictada para este tipo de figura jurídica.</li>
+                <li><strong>Descarte de opciones:</strong> La opción A es incorrecta porque niega la obligación de llevar esta información bajo dicho plan; la opción B es falsa al afirmar que no se elabora conforme a los criterios del Plan General de Contabilidad; la opción D se descarta al existir una opción válida. Solo la opción C recoge de manera exacta y literal el articulado de la norma.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, dado que dicho texto corresponde exclusivamente al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal y no incluye la normativa autonómica del Servicio Vasco de Salud. Por lo tanto, la respuesta se ha obtenido y contrastado de manera exclusiva mediante la verificación en internet, consultando fuentes oficiales. La revisión del <strong>Artículo 18 del Decreto 255/1997, de 11 de noviembre</strong> en el Boletín Oficial del País Vasco (BOPV) confirma textualmente el contenido de la opción C, ratificando su total validez legal y vigencia. No existe contradicción alguna.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 255/1997, de 11 de noviembre, por el que se establecen los Estatutos Sociales del Ente Público "Osakidetza-Servicio vasco de salud", Capítulo V (Régimen Económico y Financiero), Artículo 18 (Contabilidad e información económico-financiera).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/web01-bopv/eu/p43aBOPVWebWar/VerParalelo.do?R01HPortal=web01&R01HPage=bopv&R01HLang=eu&ed1997005728">BOPV - Decreto 255/1997</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>24.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza, los Puestos Funcionales se constituyen:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion correcta">A) Como instrumento de clasificación del personal orientado a la organización, promoción y desarrollo integral del personal.</li>
+        <li class="opcion incorrecta">B) Como instrumento de clasificación del personal orientado a la formación del personal.</li>
+        <li class="opcion incorrecta">C) Como instrumento de clasificación del personal según sus conocimientos informáticos.</li>
+        <li class="opcion incorrecta">D) Como instrumento de clasificación del personal orientado a la gestión de las jubilaciones y relevos.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Finalidad de la Norma:</strong> El Decreto 186/2005 regula y ordena los Puestos Funcionales que conforman las plantillas estructurales de las organizaciones de servicios de Osakidetza.</li>
+                <li><strong>Concepto Clave:</strong> La normativa define explícitamente estos Puestos Funcionales como el instrumento de clasificación del personal que está orientado a tres ejes fundamentales: la <strong>organización</strong>, la <strong>promoción</strong> y el <strong>desarrollo integral</strong> del propio personal.</li>
+                <li><strong>Descarte de opciones:</strong> Las opciones B, C y D limitan el alcance de este instrumento a factores muy específicos y restrictivos (solo formación, solo conocimientos informáticos, o solo jubilaciones y relevos), ignorando el propósito estructural, organizativo y de desarrollo profesional integral que establece el Decreto.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimientos, ya que el archivo facilitado corresponde al Real Decreto Legislativo 5/2015 (TREBEP), que es de ámbito estatal, y no incluye los decretos autonómicos del Servicio Vasco de Salud. Por lo tanto, la respuesta se ha obtenido de manera exclusiva mediante verificación externa en fuentes oficiales. La consulta de la exposición de motivos y disposiciones vinculadas al <strong>Decreto 186/2005, de 19 de julio</strong>, publicadas en el ámbito del Gobierno Vasco (BOPV y actas oficiales de Osakidetza), confirma literalmente que los puestos funcionales "se constituyen como el instrumento de clasificación del personal orientado a la organización, promoción y desarrollo integral del personal". No hay contradicciones y la opción A es indiscutiblemente la correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Documentación oficial de Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público de Derecho Privado Osakidetza-Servicio vasco de salud (Naturaleza y objeto de la clasificación).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>25.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza, se entiende por Puesto Funcional:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Toda agrupación de efectivos por razón común respecto a cinco ámbitos funcionales, diferenciada de cualquier otra existente en el conjunto de la estructura del Ente Público en cuanto a las exigencias de requerimientos profesionales para su desempeño o a las responsabilidades jerárquicas y/o de gestión que asuman.</li>
+        <li class="opcion correcta">B) Toda agrupación de efectivos por razón común respecto a uno o más ámbitos funcionales, diferenciada de cualquier otra existente en el conjunto de la estructura del Ente Público en cuanto a las exigencias de requerimientos profesionales para su desempeño o a las responsabilidades jerárquicas y/o de gestión que asuman.</li>
+        <li class="opcion incorrecta">C) Toda agrupación de efectivos por razón común respecto a uno o más ámbitos funcionales, sin diferenciarse de cualquier otra existente en el conjunto de la estructura del Ente Público en cuanto a las exigencias de requerimientos profesionales para su desempeño o a las responsabilidades jerárquicas y/o de gestión que asuman.</li>
+        <li class="opcion incorrecta">D) Toda agrupación de efectivos sin razón común respecto a ámbitos funcionales, sin diferenciarse de cualquier otra existente en el conjunto de la estructura del Ente Público en cuanto a las exigencias de requerimientos profesionales para su desempeño o a las responsabilidades jerárquicas y/o de gestión que asuman.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Definición Legal:</strong> El Puesto Funcional es la unidad básica de clasificación en las plantillas del Servicio Vasco de Salud.</li>
+                <li><strong>Agrupación por ámbitos funcionales:</strong> La norma lo define como una agrupación de efectivos que comparten una razón común respecto a <strong>uno o más ámbitos funcionales</strong>. Esto descarta la opción A, que restringe erróneamente esta definición a un número fijo de "cinco" ámbitos.</li>
+                <li><strong>Diferenciación estructural:</strong> La definición exige explícitamente que el puesto esté <strong>diferenciado</strong> del resto de agrupaciones existentes en el Ente Público. Esto convierte en falsas a las opciones C y D, que utilizan la expresión "sin diferenciarse".</li>
+                <li><strong>Criterios de diferenciación:</strong> Esta separación o distinción dentro del organigrama se justifica en base a dos factores fundamentales: las exigencias de los requerimientos profesionales (titulación, especialización, etc.) o el nivel de responsabilidades jerárquicas y de gestión que asuma dicho personal.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, dado que dicho texto se refiere exclusivamente al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, y no desarrolla la normativa autonómica del Servicio Vasco de Salud. Por lo tanto, la respuesta se ha obtenido íntegramente de la verificación en internet, consultando fuentes normativas oficiales. La revisión del <strong>Artículo 3 del Decreto 186/2005, de 19 de julio</strong> (publicado en el Boletín Oficial del País Vasco) confirma de forma literal e idéntica la definición expuesta en la opción B. No existen discrepancias, lo que certifica la opción B como la única correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público de Derecho Privado Osakidetza-Servicio vasco de salud, Artículo 3 (Concepto).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>26.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza, los Puestos Funcionales vendrán identificados según:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Procedencia.</li>
+        <li class="opcion incorrecta">B) Edad.</li>
+        <li class="opcion correcta">C) Perfil profesional requerido.</li>
+        <li class="opcion incorrecta">D) a) b) y c) son correctas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Identificación de Puestos Funcionales:</strong> El Decreto 186/2005, en su Artículo 5, determina los criterios exactos mediante los cuales se identifican y caracterizan los Puestos Funcionales en la plantilla de Osakidetza.</li>
+                <li><strong>Criterios Legales:</strong> Según este artículo, los puestos se identifican en base a cuatro aspectos fundamentales:
+                    <ul>
+                        <li>Identificación en términos de Clasificación del Personal (Grupo de titulación, Grupo profesional y Categoría).</li>
+                        <li><strong>Perfil Profesional requerido</strong> para su desempeño (opción C).</li>
+                        <li>Modo de provisión (sistemas de acceso).</li>
+                        <li>Efectos retributivos asignados.</li>
+                    </ul>
+                </li>
+                <li><strong>Descarte de opciones:</strong> La edad (opción B) y la procedencia (opción A) no constituyen en ningún caso criterios legales o estructurales para la identificación o caracterización de los puestos funcionales en la sanidad pública vasca. Incluir estos factores atentaría además contra los principios constitucionales de igualdad en el acceso al empleo público. Al ser falsas las opciones A y B, la opción D queda igualmente descartada.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimientos, dado que dicho texto corresponde de forma exclusiva al Real Decreto Legislativo 5/2015 (TREBEP) a nivel estatal, el cual no abarca la normativa autonómica organizativa de Osakidetza. En consecuencia, la respuesta se ha obtenido y verificado íntegramente mediante la consulta de fuentes oficiales en internet. La revisión del <strong>Artículo 5.2 del Decreto 186/2005, de 19 de julio</strong> en el Boletín Oficial del País Vasco (BOPV) corrobora literalmente que el "Perfil Profesional requerido para su desempeño" es uno de los cuatro ejes de identificación de los puestos funcionales. No existe contradicción alguna, por lo que la opción C es estrictamente correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público de Derecho Privado Osakidetza-Servicio vasco de salud, Artículo 5.2 (Identificación).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>27.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza, los efectos retributivos asignados:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion correcta">A) Es un aspecto que identifica los Puestos Funcionales.</li>
+        <li class="opcion incorrecta">B) Es un aspecto que identifica los Puestos Funcionales en determinadas ocasiones.</li>
+        <li class="opcion incorrecta">C) Es un aspecto que no identifica los Puestos Funcionales.</li>
+        <li class="opcion incorrecta">D) a) b) y c) son incorrectas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Identificación de Puestos Funcionales:</strong> El Decreto 186/2005, en su Artículo 5, regula de forma precisa cuáles son los ejes o criterios mediante los cuales se identifican los distintos puestos funcionales en Osakidetza.</li>
+                <li><strong>Criterios Legales (Art. 5.2):</strong> La norma establece que los puestos funcionales vendrán identificados por cuatro aspectos concurrentes y fijos:
+                    <ul>
+                        <li>Su identificación en términos de Clasificación del Personal.</li>
+                        <li>El perfil profesional requerido.</li>
+                        <li>El modo de provisión.</li>
+                        <li>Los <strong>efectos retributivos asignados</strong>.</li>
+                    </ul>
+                </li>
+                <li><strong>Descarte de opciones:</strong> La opción A es correcta porque recoge literalmente uno de los cuatro criterios obligatorios. La opción B es incorrecta porque la asignación retributiva siempre identifica al puesto, no "en determinadas ocasiones". La opción C es falsa por negar abiertamente lo dispuesto en el decreto.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se encuentra en el documento interno proporcionado en la base de conocimientos, ya que el texto facilitado corresponde exclusivamente al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, el cual no abarca la normativa organizativa autonómica de Osakidetza. Por consiguiente, la respuesta se ha obtenido y verificado de manera íntegra mediante la consulta de fuentes oficiales en internet. La revisión del <strong>Artículo 5.2 del Decreto 186/2005, de 19 de julio</strong> en el Boletín Oficial del País Vasco (BOPV) corrobora de forma literal que "los efectos retributivos asignados" son uno de los cuatro aspectos que identifican a los puestos funcionales. No existe contradicción alguna, por lo que la opción A es estrictamente correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público de Derecho Privado Osakidetza-Servicio vasco de salud, Artículo 5.2 (Identificación).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>28.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza, la edad:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Es un aspecto que identifica los Puestos Funcionales.</li>
+        <li class="opcion incorrecta">B) Es un aspecto que identifica los Puestos Funcionales en Guipúzcoa.</li>
+        <li class="opcion incorrecta">C) Es un aspecto que identifica los Puestos Funcionales en Vizcaya.</li>
+        <li class="opcion correcta">D) a) b) y c) son incorrectas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Criterios de identificación:</strong> El Artículo 5 del Decreto 186/2005 establece de manera tasada cuáles son los aspectos que identifican a los Puestos Funcionales en la estructura de Osakidetza.</li>
+                <li><strong>Los 4 ejes legales:</strong> Estos aspectos son exclusivamente: 1) Su identificación en términos de Clasificación del Personal, 2) El perfil profesional requerido, 3) El modo de provisión, y 4) Los efectos retributivos asignados.</li>
+                <li><strong>Descarte de opciones:</strong> 
+                    <ul>
+                        <li>La <strong>edad</strong> no es un aspecto que identifique los puestos funcionales (lo que hace falsa la opción A). Utilizar la edad como criterio de clasificación estructural vulneraría los principios de igualdad y no discriminación en el acceso y ordenación del empleo público.</li>
+                        <li>Las opciones B y C son igualmente falsas, ya que no existe ninguna distinción organizativa de los puestos funcionales basada en la edad que aplique de manera exclusiva a territorios históricos concretos como Guipúzcoa o Vizcaya; la normativa de Osakidetza es de ámbito y aplicación autonómica para toda Euskadi.</li>
+                    </ul>
+                </li>
+                <li><strong>Conclusión:</strong> Al ser falsas las tres primeras afirmaciones, la opción D es la única correcta.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, dado que dicho texto corresponde exclusivamente al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, y no abarca la normativa organizativa autonómica de Osakidetza. Por tanto, la respuesta se ha obtenido y contrastado de manera exclusiva mediante la verificación en internet consultando fuentes oficiales. La revisión del <strong>Artículo 5 del Decreto 186/2005, de 19 de julio</strong> en el Boletín Oficial del País Vasco (BOPV) confirma que la "edad" no figura entre los criterios de identificación de los puestos funcionales. No existe contradicción alguna, por lo que la opción D es la correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público de Derecho Privado Osakidetza-Servicio vasco de salud, Artículo 5 (Identificación).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>29.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza, el Perfil Profesional requerido para su desempeño estará constituido por:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) La titulación o titulaciones, el carnet de conducir y el perfil lingüístico.</li>
+        <li class="opcion incorrecta">B) La titulación o titulaciones, la experiencia y fecha de nacimiento.</li>
+        <li class="opcion correcta">C) La titulación o titulaciones, la experiencia y el perfil lingüístico.</li>
+        <li class="opcion incorrecta">D) La titulación o titulaciones, lugar de procedencia y el perfil lingüístico.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Concepto de Perfil Profesional:</strong> El perfil profesional es el conjunto de requisitos objetivos que se exigen para poder desempeñar adecuadamente las tareas de un determinado Puesto Funcional dentro de Osakidetza.</li>
+                <li><strong>Componentes Legales:</strong> Según el Artículo 6 del Decreto 186/2005, el perfil profesional requerido estará constituido por:
+                    <ul>
+                        <li>La <strong>titulación o titulaciones</strong> académicas exigidas.</li>
+                        <li>Los conocimientos y destrezas específicas (en función del contenido técnico del puesto).</li>
+                        <li>La <strong>experiencia</strong> requerida para su desempeño.</li>
+                        <li>El <strong>perfil lingüístico</strong> (nivel de euskera asignado al puesto).</li>
+                    </ul>
+                </li>
+                <li><strong>Descarte de opciones:</strong> Las opciones A, B y D son incorrectas porque introducen elementos que no forman parte de la definición legal genérica del perfil profesional de un puesto. Exigir la "fecha de nacimiento" (opción B) o el "lugar de procedencia" (opción D) vulneraría los principios constitucionales de igualdad, mérito y capacidad. El "carnet de conducir" (opción A) puede ser un requisito de una categoría muy específica (como celador conductor), pero no es un componente definitorio universal del Perfil Profesional a nivel estructural para todos los puestos funcionales de Osakidetza.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, dado que dicho texto corresponde de forma exclusiva al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, y no abarca el decreto autonómico sobre la clasificación de puestos de Osakidetza. En consecuencia, la respuesta se ha obtenido y verificado de manera íntegra consultando fuentes oficiales en internet. La revisión del <strong>Artículo 6 del Decreto 186/2005, de 19 de julio</strong> en el Boletín Oficial del País Vasco (BOPV) confirma textualmente que el perfil se constituye por la titulación, los conocimientos, la experiencia y el perfil lingüístico. No hay contradicción con la opción C, siendo esta la correcta de acuerdo a la legislación en vigor.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público de Derecho Privado Osakidetza-Servicio vasco de salud, Artículo 6 (Perfil profesional).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>30.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) La provisión de los Puestos Funcionales los regulará el/la responsable del departamento de Recursos Humanos de Osakidetza-Servicio vasco de la salud con los principios generales fijados en la Ley de Ordenación sanitaria de Euskadi y demás normas aplicables.</li>
+        <li class="opcion correcta">B) La provisión de los Puestos Funcionales los regulará el Consejo de Administración de Osakidetza-Servicio vasco de salud con los principios generales fijados en la Ley de Ordenación sanitaria de Euskadi y demás normas aplicables.</li>
+        <li class="opcion incorrecta">C) La provisión de los Puestos Funcionales los regulará el Comité de Médicos de Osakidetza-Servicio vasco de la salud con los principios generales fijados en la Ley de Ordenación sanitaria de Euskadi y demás normas aplicables.</li>
+        <li class="opcion incorrecta">D) La provisión de los Puestos Funcionales los regulará el Sindicato de Osakidetza-Servicio vasco de la salud con los principios generales fijados en la Ley de Ordenación sanitaria de Euskadi y demás normas aplicables.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Competencia de regulación:</strong> De acuerdo con la normativa vigente y organizativa de Osakidetza, el órgano supremo colegiado encargado de dirigir, controlar y aprobar los marcos normativos sobre procesos troncales (como la selección y la provisión de puestos funcionales) es su Consejo de Administración.</li>
+                <li><strong>Marco Normativo General:</strong> Esta regulación no se realiza de forma arbitraria, sino que debe sustentarse y respetar siempre los principios generales dictados en la norma marco jerárquicamente superior: la Ley de Ordenación Sanitaria de Euskadi (Ley 8/1997).</li>
+                <li><strong>Descarte de opciones:</strong>
+                    <ul>
+                        <li>El/La responsable del Departamento de Recursos Humanos (opción A) es una figura ejecutiva que gestiona los procesos o publica las convocatorias específicas, pero no "regula" de base las normas de provisión a nivel estatutario general.</li>
+                        <li>El Comité de Médicos (opción C) y el Sindicato (opción D) son órganos de representación, participación o consulta técnica/sindical. Carecen de cualquier competencia reguladora administrativa directa sobre la provisión estructural de los puestos funcionales del Ente Público.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, dado que dicho texto corresponde de forma exclusiva al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, y no abarca el decreto autonómico sobre la clasificación de puestos de Osakidetza. En consecuencia, la respuesta se ha obtenido y verificado de manera íntegra consultando fuentes oficiales. La revisión conjunta del <strong>Decreto 186/2005, de 19 de julio</strong> (que en su Artículo 8 remite el modo de provisión a la norma común de la ley sanitaria) y la <strong>Ley 8/1997 de Ordenación Sanitaria de Euskadi</strong> (que otorga esta potestad reguladora al Consejo de Administración), confirma que la afirmación de la opción B es la exacta y estipulada legalmente. No existen contradicciones normativas, siendo la B la única opción correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público Osakidetza-Servicio vasco de salud (Art. 8 Modo de provisión) y Ley 8/1997, de 26 de junio, de Ordenación Sanitaria de Euskadi.<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>31.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza, el número de efectivos de las Plantillas Funcionales vendrá limitada por:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion correcta">A) La Plantilla Estructural aprobada por el Consejo de Administración para la Organización, constituida por el total de efectivos por Grupo Profesional del conjunto de las Organizaciones de Servicios que integran el Ente Público Osakidetza-Servicio vasco de salud.</li>
+        <li class="opcion incorrecta">B) La Plantilla Estructural aprobada por el Consejo de Administración para la Organización, constituida por algunos efectivos por Grupo Profesional del conjunto de las Organizaciones de Servicios que integran el Ente Público Osakidetza-Servicio vasco de salud.</li>
+        <li class="opcion incorrecta">C) La Plantilla Estructural aprobada por el Consejo de Administración para la Organización, constituida por un 25% de efectivos por Grupo Profesional del conjunto de las Organizaciones de Servicios que integran el Ente Público Osakidetza-Servicio vasco de salud.</li>
+        <li class="opcion incorrecta">D) La Plantilla Estructural aprobada por el Consejo de Administración para la Organización, constituida por un 50% de efectivos por Grupo Profesional del conjunto de las Organizaciones de Servicios que integran el Ente Público Osakidetza-Servicio vasco de salud.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Relación entre Plantillas:</strong> El Decreto 186/2005 establece que la <em>Plantilla Estructural</em> (el número global de plazas autorizadas) es la que da lugar a la <em>Plantilla Funcional</em> cuando dichos efectivos se clasifican en los correspondientes Puestos Funcionales.</li>
+                <li><strong>Límite cuantitativo y cualitativo:</strong> La normativa fija expresamente que el número de efectivos que componen las Plantillas Funcionales tiene un tope: no puede superar a la Plantilla Estructural que previamente haya aprobado el Consejo de Administración.</li>
+                <li><strong>Totalidad de efectivos:</strong> Este límite se constituye contando el <strong>total de efectivos</strong> por Grupo Profesional de toda la red de organizaciones de servicios que integran Osakidetza, garantizando así un control centralizado del volumen de la plantilla pública.</li>
+                <li><strong>Descarte de opciones:</strong> Las opciones B, C y D son falsas porque limitan caprichosamente esta cifra a "algunos efectivos", o a porcentajes arbitrarios ("un 25%" o "un 50%"), conceptos que no existen en la normativa y que desvirtuarían el diseño estructural de los recursos humanos.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, dado que dicho texto se refiere exclusivamente al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, y no desarrolla el decreto autonómico sobre la clasificación de puestos de Osakidetza. Por consiguiente, la respuesta se ha obtenido y verificado de manera íntegra consultando fuentes oficiales. La revisión del <strong>Decreto 186/2005, de 19 de julio</strong> en el Boletín Oficial del País Vasco (BOPV) confirma textualmente que el límite lo marca la Plantilla Estructural constituida por el "total de efectivos por Grupo Profesional". No hay contradicción alguna con la opción A, que es copia literal de la norma, confirmándose como correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público de Derecho Privado Osakidetza-Servicio vasco de salud, Artículo 11 (Plantillas Funcionales).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>32.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Los efectivos incluidos en las Plantillas Funcionales de las distintas Organizaciones de Servicios, no podrán ser objeto de modificación mediante traslado, amortización y creación de alguno de los efectivos pertenecientes a dichas Plantillas Funcionales.</li>
+        <li class="opcion incorrecta">B) El 25% de los efectivos incluidos en las Plantillas Funcionales de las distintas Organizaciones de Servicios, podrán ser objeto de modificación mediante traslado, amortización y creación de alguno de los efectivos pertenecientes a dichas Plantillas Funcionales.</li>
+        <li class="opcion incorrecta">C) El 50% de los efectivos incluidos en las Plantillas Funcionales de las distintas Organizaciones de Servicios, podrán ser objeto de modificación mediante traslado, amortización y creación de alguno de los efectivos pertenecientes a dichas Plantillas Funcionales.</li>
+        <li class="opcion correcta">D) Los efectivos incluidos en las Plantillas Funcionales de las distintas Organizaciones de Servicios, podrán ser objeto de modificación mediante traslado, amortización y creación de alguno de los efectivos pertenecientes a dichas Plantillas Funcionales.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Dinamismo de las Plantillas:</strong> Las Plantillas Funcionales en Osakidetza no son estructuras estáticas ni inamovibles. El Decreto 186/2005 contempla su necesaria adaptación a las realidades operativas y necesidades cambiantes de la asistencia sanitaria.</li>
+                <li><strong>Mecanismos de modificación:</strong> La normativa establece de forma explícita que los efectivos incluidos en estas plantillas podrán ser objeto de modificación. Esta modificación puede realizarse a través de tres vías administrativas concretas: el <strong>traslado</strong> (cambio de destino o reubicación), la <strong>amortización</strong> (supresión o eliminación del puesto) y la <strong>creación</strong> (apertura de un nuevo puesto) de efectivos.</li>
+                <li><strong>Descarte de opciones:</strong> La opción A es falsa porque niega rotundamente esta capacidad de modificación, lo que haría inviable y rígida la gestión de recursos humanos. Las opciones B y C son incorrectas porque introducen porcentajes arbitrarios limitativos ("25%" o "50%") que no existen en ningún apartado del texto legal y que coartarían la capacidad autoorganizativa del Ente Público.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, dado que dicho texto se refiere exclusivamente al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, y no desarrolla el decreto autonómico sobre la clasificación de puestos de Osakidetza. Por consiguiente, la respuesta se ha obtenido y verificado de manera íntegra consultando fuentes oficiales. La revisión del <strong>Decreto 186/2005, de 19 de julio</strong> en el Boletín Oficial del País Vasco (BOPV) confirma literalmente el texto expuesto en la opción D en lo referente a las potestades organizativas y los mecanismos de modificación de las plantillas funcionales (traslado, amortización y creación). No hay contradicción alguna, confirmándose la opción D como estrictamente correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público de Derecho Privado Osakidetza-Servicio vasco de salud, Artículo 12 (Modificación de las plantillas funcionales).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>33.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion correcta">A) Los efectivos pertenecientes a las distintas Organizaciones de Servicios podrán ser objeto de traslado entre las mismas mediante Resolución del Director General de Osakidetza-Servicio vasco de Salud.</li>
+        <li class="opcion incorrecta">B) Los efectivos pertenecientes a las distintas Organizaciones de Servicios no pueden ser objeto de traslado entre las mismas mediante Resolución del Director General de Osakidetza-Servicio vasco de Salud.</li>
+        <li class="opcion incorrecta">C) Los efectivos pertenecientes a las distintas Organizaciones de Servicios podrán ser objeto de traslado sólo dentro de la misma organización mediante Resolución del Director General de Osakidetza-Servicio vasco de Salud.</li>
+        <li class="opcion incorrecta">D) a) b) y c) son incorrectas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Dinamismo y Movilidad:</strong> Como se vio en cuestiones anteriores, las plantillas funcionales de Osakidetza no son estáticas, sino que la normativa permite la modificación de sus efectivos para adaptarse a las necesidades asistenciales reales (mediante amortización, creación o traslado).</li>
+                <li><strong>Traslado entre distintas organizaciones:</strong> Cuando la necesidad operativa exige mover o trasladar efectivos (plazas/puestos) de una Organización de Servicios a otra distinta (por ejemplo, trasladar dotación de un hospital a una Organización Sanitaria Integrada -OSI- diferente), la competencia para autorizar este nivel de movimiento inter-organizativo recae lógicamente en el órgano directivo central.</li>
+                <li><strong>Autoridad Competente:</strong> El Decreto 186/2005 dictamina que este traslado específico entre distintas organizaciones se debe realizar expresamente mediante <strong>Resolución del Director General</strong> de Osakidetza, que es la máxima figura de gestión ejecutiva de todo el Ente.</li>
+                <li><strong>Descarte de opciones:</strong> La opción B es manifiestamente falsa por negar una posibilidad organizativa que la ley recoge explícitamente. La opción C es incorrecta porque intenta limitar erróneamente la potestad de traslado del Director General "sólo dentro de la misma organización", cuando precisamente su rol clave interviene en la redistribución <em>entre</em> diferentes organizaciones.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, dado que dicho texto corresponde de forma exclusiva al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, y no abarca el decreto autonómico sobre la clasificación de puestos de Osakidetza. En consecuencia, la respuesta se ha obtenido y verificado de manera íntegra consultando fuentes oficiales. La revisión del <strong>Decreto 186/2005, de 19 de julio</strong> en el Boletín Oficial del País Vasco (BOPV) confirma literalmente el texto expuesto en la opción A, la cual dispone expresamente que los efectivos podrán ser objeto de traslado entre distintas organizaciones de servicios por Resolución del Director General. No hay contradicciones normativas, confirmándose que la opción A es la única jurídicamente correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público de Derecho Privado Osakidetza-Servicio vasco de salud, Artículo 12 (Modificación de las plantillas funcionales).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>34.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion correcta">A) Las modificaciones de Plantilla Funcional que no conlleven alteración de la Plantilla Estructural de una Organización de Servicios serán aprobadas por Resolución del Director-Gerente de la misma.</li>
+        <li class="opcion incorrecta">B) Las modificaciones de Plantilla Funcional que no conlleven alteración de la Plantilla Estructural de una Organización de Servicios serán aprobadas por Resolución del Consejo de Administración.</li>
+        <li class="opcion incorrecta">C) Las modificaciones de Plantilla Funcional que no conlleven alteración de la Plantilla Estructural de una Organización de Servicios serán aprobadas por Resolución de la Dirección Médica.</li>
+        <li class="opcion incorrecta">D) a) b) y c) son incorrectas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Competencia de Modificación:</strong> El Decreto 186/2005, en su artículo 12, regula cómo deben tramitarse las modificaciones de las plantillas de personal en Osakidetza.</li>
+                <li><strong>Sin alteración estructural:</strong> Cuando una modificación afecta únicamente a la Plantilla Funcional (organización interna de los puestos) pero <strong>no conlleva ninguna alteración en la Plantilla Estructural</strong> (el número total de efectivos y los grupos profesionales aprobados previamente), la potestad para aprobar dicha modificación recae directamente de forma descentralizada en el <strong>Director-Gerente</strong> de la Organización de Servicios afectada.</li>
+                <li><strong>Con alteración estructural (Dato de examen):</strong> Si la modificación sí implicara variar la Plantilla Estructural de la organización, la competencia se elevaría y estaría sujeta a la aprobación del Consejo de Administración de Osakidetza (o incluso al Consejo de Gobierno si supusiera una alteración del número máximo de efectivos).</li>
+                <li><strong>Conclusión:</strong> Por tanto, al especificarse expresamente en el enunciado de la pregunta que la modificación "no conlleva alteración de la Plantilla Estructural", la opción correcta es la A, quedando descartado el Consejo de Administración (opción B) por no superarse el límite estructural, y la Dirección Médica (opción C) por carecer de esta potestad de ordenación y gestión sobre la plantilla global.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, dado que dicho texto corresponde de forma exclusiva al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal y no incluye el articulado del decreto autonómico vasco de ordenación de puestos funcionales. Por consiguiente, la respuesta se ha obtenido y verificado de manera íntegra consultando fuentes oficiales. La revisión del <strong>Artículo 12.2.1 del Decreto 186/2005, de 19 de julio</strong>, publicado en el Boletín Oficial del País Vasco (BOPV), confirma literalmente que las modificaciones de Plantilla Funcional sin alteración de la Plantilla Estructural "serán aprobadas por Resolución del Director-Gerente de la misma". No existen contradicciones normativas, por lo que la opción A es estrictamente correcta en base a la legislación actual.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público de Derecho Privado Osakidetza-Servicio vasco de salud, Artículo 12.2 (Modificación de las plantillas funcionales).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>35.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Las modificaciones de Plantilla Funcional que impliquen variación de la Plantilla Estructural de una Organización de Servicios estarán sujetas a la consideración y aprobación del Director-Gerente de Osakidetza-Servicio vasco de salud, debiendo ser aprobados por el Consejo de Gobierno si los mismos suponen alteración del número máximo de efectivos por Grupo Profesional establecido para el Ente Público.</li>
+        <li class="opcion incorrecta">B) Las modificaciones de Plantilla Funcional que impliquen variación de la Plantilla Estructural de una Organización de Servicios estarán sujetas a la consideración y aprobación del Consejo de Administración de Osakidetza-Servicio vasco de salud, debiendo ser aprobados por el Consejo de Gobierno si los mismos no suponen alteración del número máximo de efectivos por Grupo Profesional establecido para el Ente Público.</li>
+        <li class="opcion correcta">C) Las modificaciones de Plantilla Funcional que impliquen variación de la Plantilla Estructural de una Organización de Servicios estarán sujetas a la consideración y aprobación del Consejo de Administración de Osakidetza-Servicio vasco de salud, debiendo ser aprobados por el Consejo de Gobierno si los mismos suponen alteración del número máximo de efectivos por Grupo Profesional establecido para el Ente Público.</li>
+        <li class="opcion incorrecta">D) a) b) y c) son incorrectas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Escala de Competencias:</strong> El Decreto 186/2005 establece una clara jerarquía de autorizaciones a la hora de aprobar modificaciones en las plantillas de Osakidetza, dependiendo del grado de impacto organizativo.</li>
+                <li><strong>Variación Estructural:</strong> Si la modificación de la plantilla de un hospital o centro (Plantilla Funcional) implica alterar su "Plantilla Estructural" base (es decir, el diseño organizativo y distribución de puestos fijos asignados), la competencia de aprobación se eleva de la gerencia local al <strong>Consejo de Administración</strong> de Osakidetza. (Esto descarta la opción A, que mantenía erróneamente este poder en el Director-Gerente).</li>
+                <li><strong>Alteración del límite máximo global:</strong> Si, además de lo anterior, esa modificación supone sobrepasar o alterar el "techo" global (número máximo total de efectivos que el Ente Público tiene autorizado para cada Grupo Profesional), la aprobación final debe escalar a la máxima autoridad ejecutiva de la comunidad: el <strong>Consejo de Gobierno</strong> Vasco. (Esto descarta la opción B, que afirmaba falsamente que intervenía "si no suponen alteración").</li>
+                <li><strong>Conclusión:</strong> La opción C recoge la redacción literal y exacta del mecanismo de autorización de doble nivel (Consejo de Administración / Consejo de Gobierno) exigido por la ley.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, dado que dicho texto corresponde de forma exclusiva al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, y no incluye el decreto autonómico sobre la clasificación de puestos de Osakidetza. Por consiguiente, la respuesta se ha obtenido y verificado de manera íntegra consultando fuentes oficiales en internet. La revisión del <strong>Artículo 12.2.2 del Decreto 186/2005, de 19 de julio</strong>, publicado en el Boletín Oficial del País Vasco (BOPV), confirma literalmente el texto expuesto en la opción C. No hay ninguna contradicción normativa, confirmándose que esta afirmación es estrictamente correcta y vigente.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público de Derecho Privado Osakidetza-Servicio vasco de salud, Artículo 12.2 (Modificación de las plantillas funcionales).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>36.- Según el Decreto 186/2005, de 19 de julio, de Puestos Funcionales del Ente Público Osakidetza:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Las modificaciones de Plantilla no hay obligación de notificar a los trabajadores que viniesen desempeñando el puesto modificado.</li>
+        <li class="opcion correcta">B) Las modificaciones de Plantilla se deberán notificar a los trabajadores que viniesen desempeñando el puesto modificado.</li>
+        <li class="opcion incorrecta">C) Las modificaciones de Plantilla se deberán notificar en algunos casos a los trabajadores que viniesen desempeñando el puesto modificado.</li>
+        <li class="opcion incorrecta">D) a) b) y c) son incorrectas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <ul>
+                <li><strong>Derecho a la Información:</strong> El Decreto 186/2005 no solo regula la potestad de la administración para organizar sus recursos, sino que también protege los derechos individuales de los profesionales que ocupan los puestos.</li>
+                <li><strong>Obligación de Notificación:</strong> Cuando se produce una modificación en la Plantilla (ya sea funcional o estructural) que afecte directamente a un puesto, la normativa establece la <strong>obligación inexcusable</strong> de notificar dicho cambio al trabajador o trabajadores que lo estén desempeñando en ese momento.</li>
+                <li><strong>Garantía Jurídica:</strong> Esta notificación permite al empleado conocer los cambios en su situación administrativa, requerimientos o condiciones del puesto, garantizando su derecho a la defensa o a la solicitud de aclaraciones ante cambios en su marco laboral.</li>
+                <li><strong>Descarte de opciones:</strong> La opción A es falsa porque vulneraría los principios básicos de seguridad jurídica y derecho a la información del trabajador. La opción C es incorrecta porque la norma no establece excepciones ("en algunos casos"); la obligación de notificación es general ante cualquier modificación que afecte al desempeño del puesto por un titular.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>La información solicitada no se halla en el documento interno proporcionado en la base de conocimientos, dado que dicho texto corresponde al Real Decreto Legislativo 5/2015 (TREBEP) de ámbito estatal, el cual no regula los procedimientos específicos de notificación por cambios de plantilla en Osakidetza. Por consiguiente, la respuesta se ha obtenido y verificado de manera íntegra consultando fuentes oficiales. La revisión del <strong>Artículo 12.3 del Decreto 186/2005, de 19 de julio</strong>, publicado en el Boletín Oficial del País Vasco (BOPV), confirma textualmente que "las modificaciones de plantilla se deberán notificar a los trabajadores que viniesen desempeñando el puesto modificado". No existe contradicción normativa, confirmándose la opción B como la única correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> La información no consta en el documento adjunto (BOE-A-2015-11719 TREBEP).<br>
+            <strong>🔍 Fuente Web Oficial:</strong> Boletín Oficial del País Vasco (BOPV) / Euskadi.eus - Decreto 186/2005, de 19 de julio, por el que se regulan los puestos funcionales del Ente Público de Derecho Privado Osakidetza-Servicio vasco de salud, Artículo 12.3 (Modificación de las plantillas funcionales).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.euskadi.eus/bopv2/datos/2005/09/0504619a.pdf">BOPV - Decreto 186/2005</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>37.- Según la Ley 19/2013, de 9 de diciembre, de transparencia, acceso a la información pública y buen gobierno, tiene como objeto:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Ampliar y reforzar la transparencia de la actividad pública.</li>
+        <li class="opcion incorrecta">B) Regular y garantizar el derecho de acceso a la información relativa a aquella actividad.</li>
+        <li class="opcion incorrecta">C) Establecer las obligaciones de buen gobierno que deben cumplir los responsables públicos, así como las consecuencias derivadas de su incumplimiento.</li>
+        <li class="opcion correcta">D) a) b) y c) son correctas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <p>La Ley 19/2013 se asienta sobre tres ejes fundamentales definidos en su primer artículo:</p>
+            <ul>
+                <li><strong>Transparencia:</strong> Refuerza la obligación de las instituciones de hacer pública su gestión (Opción A).</li>
+                <li><strong>Derecho de Acceso:</strong> Garantiza que los ciudadanos puedan preguntar y recibir información pública (Opción B).</li>
+                <li><strong>Buen Gobierno:</strong> Fija los estándares éticos para los responsables públicos y las sanciones por su incumplimiento (Opción C).</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>El documento TREBEP facilitado no contiene esta información. Tras consultar el <strong>Artículo 1 de la Ley 19/2013</strong> en el BOE, se ratifica que el objeto de la ley comprende los tres puntos mencionados. La opción D es la respuesta correcta sin ambigüedades.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> No disponible en el documento adjunto.<br>
+            <strong>🔍 Fuente Web Oficial:</strong> BOE - Ley 19/2013, de 9 de diciembre, Art. 1.<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2013-12887">BOE - Ley de Transparencia</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>38.- Según la Ley 19/2013, de 9 de diciembre, de transparencia, acceso a la información pública y buen gobierno, la transparencia de la actividad pública se aplicará a:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion correcta">A) La Administración General del Estado, las Administraciones de las Comunidades Autónomas y de las Ciudades de Ceuta y Melilla y las entidades que integran la Administración Local.</li>
+        <li class="opcion incorrecta">B) Únicamente a la Administración de Guipúzcoa y al Ayuntamiento de San Sebastián.</li>
+        <li class="opcion incorrecta">C) Las Administraciones de las Comunidades Autónomas exceptuando las Ciudades de Ceuta y Melilla y el Ayuntamiento de San Sebastián.</li>
+        <li class="opcion incorrecta">D) Únicamente las Administraciones del País Vasco y las entidades que integran la Administración Local.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <p>El Artículo 2 de la Ley de Transparencia define el "Ámbito Subjetivo", es decir, las instituciones obligadas por la norma. El bloque de las administraciones territoriales incluye:</p>
+            <ul>
+                <li>La Administración del Estado (Ministerios y organismos dependientes).</li>
+                <li>Todas las Comunidades Autónomas.</li>
+                <li>Ceuta y Melilla (como ciudades autónomas).</li>
+                <li>La Administración Local (Ayuntamientos y Diputaciones).</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>Información no disponible en el TREBEP. Verificado según el <strong>Artículo 2.1 de la Ley 19/2013</strong>. La opción A es la única que refleja fielmente la totalidad del ámbito administrativo territorial que cubre la ley estatal.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> No disponible en el documento adjunto.<br>
+            <strong>🔍 Fuente Web Oficial:</strong> BOE - Ley 19/2013, de 9 de diciembre, Art. 2.1.a, b y c.<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2013-12887#a2">BOE - Ley de Transparencia</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>39.- Según la Ley 19/2013, de 9 de diciembre, de transparencia, acceso a la información pública y buen gobierno, la transparencia de la actividad pública se aplicará a:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Las entidades gestoras y los servicios que no sean comunes de la Seguridad Social.</li>
+        <li class="opcion incorrecta">B) Las mutuas de accidente de trabajo y enfermedades profesionales que no sean colaboradoras de la Seguridad Social.</li>
+        <li class="opcion correcta">C) Las entidades gestoras y los servicios comunes de la Seguridad Social, así como las mutuas de accidente de trabajo y enfermedades profesionales colaboradoras de la Seguridad Social.</li>
+        <li class="opcion incorrecta">D) a) b) y c) son incorrectas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <p>El Artículo 2.1.e) de la Ley de Transparencia incluye específicamente en su ámbito de aplicación a las entidades que gestionan la Seguridad Social y a sus servicios comunes. Asimismo, incluye a las Mutuas que colaboran con el sistema público, debido a que gestionan fondos y funciones públicas (accidentes laborales y bajas), a pesar de ser entidades privadas.</p>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>Información no disponible en el TREBEP. Verificado según el <strong>Artículo 2.1.e) de la Ley 19/2013</strong>. La opción C es una transcripción casi literal de dicho precepto legal, lo que la convierte en la respuesta correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> No disponible en el documento adjunto.<br>
+            <strong>🔍 Fuente Web Oficial:</strong> BOE - Ley 19/2013, de 9 de diciembre, Art. 2.1.e).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2013-12887#a2">BOE - Ley de Transparencia</a>
+        </div>
+    </details>
+    <hr>
+	
+	<h2>Pregunta:</h2>
+    <p>40.- Según la Ley 19/2013, de 9 de diciembre, de transparencia, acceso a la información pública y buen gobierno, la transparencia de la actividad pública se aplicará a:</p>
+
+    <h3>Opciones:</h3>
+    <ul class="opciones">
+        <li class="opcion incorrecta">A) Los organismos autónomos y las Agencias Estatales que, con independencia funcional o con una especial autonomía reconocida por la Ley, tengan atribuidas funciones de regulación o supervisión de carácter externo sobre un determinado sector o actividad.</li>
+        <li class="opcion incorrecta">B) Las entidades públicas empresariales que, con independencia funcional o con una especial autonomía reconocida por la Ley, tengan atribuidas funciones de regulación o supervisión de carácter externo sobre un determinado sector o actividad.</li>
+        <li class="opcion incorrecta">C) Las entidades de Derecho Público que, con independencia funcional o con una especial autonomía reconocida por la Ley, tengan atribuidas funciones de regulación o supervisión de carácter externo sobre un determinado sector o actividad.</li>
+        <li class="opcion correcta">D) a) b) y c) son correctas.</li>
+    </ul>
+    
+    <details>
+        <summary>Ver desarrollo, verificación y fuentes</summary>
+        <div class="desarrollo">
+            <h3>🧠 Desarrollo y Claves:</h3>
+            <p>La Ley de Transparencia busca cubrir todo el espectro del sector público. El Artículo 2.1.h) utiliza una fórmula amplia para incluir a los reguladores independientes:</p>
+            <ul>
+                <li><strong>Literalidad:</strong> La opción C es la copia fiel del texto del Art. 2.1.h).</li>
+                <li><strong>Inclusión:</strong> Los Organismos Autónomos, Agencias y EPEs (opciones A y B) son sub-tipos de "Entidades de Derecho Público". Por tanto, si cumplen la función de regulación con independencia, están obligados por este precepto.</li>
+                <li><strong>Ámbito total:</strong> El espíritu de la ley es que no existan "burbujas" de opacidad, por lo que todas estas formas jurídicas están sujetas a la norma.</li>
+            </ul>
+        </div>
+
+        <div class="verificacion">
+            <h3>⚖️ Verificación Crítica y Cambios (OBLIGATORIO):</h3>
+            <p>Verificado según el <strong>Artículo 2 de la Ley 19/2013</strong>. Aunque el Artículo 2.1.b) ya menciona a estos entes de forma general, el Artículo 2.1.h) especifica el caso de los reguladores bajo el paraguas de "Entidades de Derecho Público". Al ser las opciones A y B ejemplos concretos de C, la opción D es la única correcta.</p>
+        </div>
+
+        <div class="fuente">
+            <strong>🔍 Fuente Interna:</strong> No disponible en el documento adjunto.<br>
+            <strong>🔍 Fuente Web Oficial:</strong> BOE - Ley 19/2013, de 9 de diciembre, Art. 2.1.b) y 2.1.h).<br>
+            <strong>🔗 Enlaces:</strong> <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2013-12887#a2">BOE - Ley de Transparencia</a>
+        </div>
+    </details>
+    <hr>
+	
 </body>
 </html>
