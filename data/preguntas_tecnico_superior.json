@@ -5168,22 +5168,6 @@
         }
     },
     {
-        "numero": 323,
-        "pregunta": "323.- El trabajo en equipo. Aquellos/as profesionales que tienen más desarrollado el rol Belbin de Finalizadores y su aptitud para acabar cualquier tarea que comienzan les convierte en colaboradores de valor incalculable para aquellos jefes/as que inician las cosas con entusiasmo y valoran los resultados. ¿Con qué tipo de jefe pueden tener más tensiones a la hora de rendir cuentas los Finalizadores? Señale la respuesta correcta.",
-        "opciones": [
-            "A) Investigador de recursos.",
-            "B) Cerebro.",
-            "C) Impulsor.",
-            "D) Finalizador."
-        ],
-        "respuesta_correcta": "b",
-        "detalles": {
-            "informacion": "<h3>🧠 Desarrollo y Claves:</h3>\n<ul>\n<li><strong>El rol del Finalizador (Completer Finisher):</strong> Se caracteriza por su orientación hacia el orden, la precisión, el cumplimiento meticuloso de los plazos y un alto nivel de ansiedad por evitar errores u omisiones. Necesitan cerrar los procesos abiertos para mantener su estabilidad emocional y profesional.</li>\n<li><strong>El rol del Cerebro (Plant) como jefe:** El Cerebro es creativo, imaginativo y desestructurado. Como líder, tiende a estar absorto en grandes conceptos e ideas innovadoras, descuidando por completo los detalles de ejecución. Además, un jefe Cerebro suele cambiar las directrices o introducir nuevas ideas disruptivas en mitad de un proceso.</strong></li>\n<li><strong>Origen de las tensiones al rendir cuentas:</strong> Cuando un Finalizador acude a rendir cuentas ante un jefe Cerebro, se produce un choque frontal de prioridades. El Finalizador busca revisar con precisión milimétrica los detalles y el cierre de las tareas pendientes, mientras que el jefe Cerebro puede mostrarse indiferente hacia esas minucias o, peor aún, puede invalidar el esfuerzo del Finalizador cambiando el rumbo del proyecto debido a una nueva ocurrencia creativa. Esto genera un enorme estrés y una profunda tensión en el Finalizador, quien ve amenazado su deseo de perfección y cierre.</li>\n<li><strong>Análisis de las otras opciones:</strong>\n<ul>\n<li><strong>a) Investigador de recursos:</strong> Aunque también puede descuidar el seguimiento, suele delegar con entusiasmo y agradecer de buen grado que el Finalizador se ocupe del cierre, formando una alianza muy valorada y con menos fricciones destructivas.</li>\n<li><strong>c) Impulsor:</strong> Es un jefe muy exigente con los plazos y puede presionar al Finalizador, pero ambos comparten la necesidad de alcanzar resultados concretos y medibles, lo que alinea sus objetivos finales.</li>\n<li><strong>d) Finalizador:</strong> Dos finalistas pueden experimentar cierta duplicidad o exceso de celo en el control del detalle, pero comparten los mismos códigos y respeto por la precisión, reduciendo la incomprensión mutua.</li>\n</ul>\n</li>\n</ul>",
-            "fuentes": "<strong>🔍 Fuente Interna:</strong> Ope - Técnico Superior Organización_10.<br/>\n<strong>🔍 Fuente Web Oficial:</strong> Belbin Associates - The Nine Team Roles.<br/>\n<strong>🔗 Enlaces:</strong> <a href=\"https://www.belbin.com/about/belbin-team-roles/\">https://www.belbin.com/about/belbin-team-roles/</a>",
-            "verificacion": "<h3>⚖️ Verificación Crítica y Cambios:</h3>\r\n            Se confirma que la opción <strong>b) Cerebro</strong> es la respuesta correcta y coherente con el marco teórico del modelo de Roles de Equipo de Belbin aplicable a la psicología de las organizaciones en las administraciones públicas. La dinámica de conflicto entre el perfil altamente conceptual y mutable del Cerebro (Plant) y el perfil meticuloso y orientado al cierre estricto del Finalizador (Completer Finisher) está ampliamente documentada como una de las fuentes de fricción más agudas en la rendición de cuentas. No se introducen modificaciones con respecto al criterio doctrinal estándar empleado en los ejercicios de selección de Osakidetza."
-        }
-    },
-    {
         "numero": 324,
         "pregunta": "324.- El trabajo en equipo. Los puntos fuertes de los Roles de equipo Belbin están comúnmente asociados a una determinada debilidad. Éstas reciben el nombre de debilidades permitidas. ¿Con qué rol de equipo Belbin se corresponde la debilidad consistente en ser demasiado crítico? Señale la respuesta correcta.",
         "opciones": [
